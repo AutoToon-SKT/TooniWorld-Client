@@ -197,7 +197,7 @@ class _InputScreenState extends State<InputScreen> {
           ),
         ],
       ),
-      //bottomNavigationBar: Bottom(),
+      //bottomNavigationBar: Bottom(), // error reason
     );
   }
 }
