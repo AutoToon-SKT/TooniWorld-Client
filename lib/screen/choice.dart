@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(MyApp());
@@ -115,7 +116,10 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                   controller: cartoonNameController,
                   maxLines: 1,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                    border: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: Color(0xffD9D9D9)), // 변경된 부분
+                    ),
                     hintText: '카툰이름을 입력하세요.',
                     hintStyle: TextStyle(
                       color: Color(0xff6E6E6E),
@@ -141,7 +145,9 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                   controller: locationController,
                   maxLines: 1,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xffD9D9D9)),
+                    ),
                     hintText: '방문하였거나 추억이 있는 장소를 입력하세요.',
                     hintStyle: TextStyle(
                       color: Color(0xff6E6E6E),
@@ -174,7 +180,10 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '날짜와 시간',
+                        selectedDateTime != null
+                            ? DateFormat('yyyy-MM-dd HH:mm')
+                                .format(selectedDateTime!)
+                            : '날짜와 시간',
                         style: TextStyle(
                           color: Color(0xff6E6E6E),
                           fontSize: 16,
@@ -434,7 +443,11 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
   Widget buildArtStyleCheckbox(String text) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Color(0xff727DBC)),
+        border: Border.all(
+          color: selectedStyle == text
+              ? Color(0xff727DBC)
+              : Color(0xffD9D9D9), // 선택 여부에 따라 테두리 색 변경
+        ),
         borderRadius: BorderRadius.circular(6),
       ),
       child: Row(
@@ -448,6 +461,8 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                 }
               });
             },
+            activeColor: Color(0xff727DBC), // 체크됐을 때 색상
+            checkColor: Color(0xffFFFFFF), // 체크 안됐을 때 체크 표시 색상
           ),
           Text(
             text,
@@ -459,7 +474,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
           ),
         ],
       ),
-      margin: EdgeInsets.symmetric(vertical: 5), // 각 체크박스 간 간격 조절
+      margin: EdgeInsets.symmetric(vertical: 5),
     );
   }
 
