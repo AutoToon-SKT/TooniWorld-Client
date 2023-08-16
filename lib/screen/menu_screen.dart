@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/flutter_svg.dart'; // Import SVG
 import 'package:SKT_FLY_AI/sub_splash_screen.dart'; // Import SubSplashScreen
 
 class MenuScreen extends StatefulWidget {
