@@ -8,7 +8,7 @@
 ### 앱을 만든 사람들
 임승환 (서울대학교) [ PM / AI ] <br>
 이승호 (한양대학교) [ AI ] <br>
-이서현 (서울과기대학교) [ Backend / Client ] <br>  
+이서현 (서울과기대학교) [ Backend / Client ] <br>
 강연수 (이화여자대학교) [ Backend / Client ] <br>
 오정민 (숭실대학교) [ Design / Client ]  
 
