@@ -314,7 +314,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                 height: 51,
                 child: ElevatedButton(
                   onPressed: () {
-                    _showResultDialog();
+                    // _showResultDialog();
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Color(0xff727DBC),
@@ -478,7 +478,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
     );
   }
 
-  void _showResultDialog() {
-    // ... (이하 코드는 생략)
-  }
+  // void _showResultDialog() {
+  //   // ... (이하 코드는 생략)
+  // }
 }
