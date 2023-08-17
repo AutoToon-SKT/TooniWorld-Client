@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
+import 'package:SKT_FLY_AI/screen/diary.dart';
 
 void main() {
   runApp(MyApp());
@@ -314,7 +315,12 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                 height: 51,
                 child: ElevatedButton(
                   onPressed: () {
-                    // _showResultDialog();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DiaryScreen(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Color(0xff727DBC),

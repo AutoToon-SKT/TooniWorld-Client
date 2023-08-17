@@ -1,4 +1,5 @@
 import 'package:SKT_FLY_AI/screen/choice.dart';
+import 'package:SKT_FLY_AI/screen/diary.dart';
 import 'package:SKT_FLY_AI/widget/bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:SKT_FLY_AI/screen/menu_screen.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: '투니닷',
       theme: ThemeData(
         scaffoldBackgroundColor: Color(0xffF1F2F6),
-        brightness: Brightness.dark,
+        brightness: Brightness.light,
         primaryColor: Colors.black,
         hintColor: Colors.black,
         inputDecorationTheme: InputDecorationTheme(
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         '/input': (context) => InputScreen(),
         '/subsplash': (context) => SubSplashScreen(),
         '/choice': (context) => ChoiceScreen(),
+        '/diary': (context) => DiaryScreen(),
       },
     );
   }
