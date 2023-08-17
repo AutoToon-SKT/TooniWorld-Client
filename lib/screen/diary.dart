@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:SKT_FLY_AI/screen/show_cartoon.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,11 +31,20 @@ class _DiaryScreenState extends State<DiaryScreen> {
     });
   }
 
-  void _saveStory() {
+  void _saveStoryAndNavigate() {
     String story = storyController.text;
-    // 여기에 이야기를 저장하는 로직을 추가하세요.
-    // 저장이 완료되면 다음과 같이 텍스트 필드를 초기화합니다.
+    // Here, you can add the logic to save the story if needed.
+
+    // Clear the text field
     storyController.clear();
+
+    // Navigate to the WebtoonScreen
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ShowCartoonScreen()),
+    );
+
+    // Set isWriting to false
     setState(() {
       isWriting = false;
     });
@@ -176,12 +186,30 @@ class _DiaryScreenState extends State<DiaryScreen> {
             ),
           ),
           actions: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('닫기'),
-            ),
+            SizedBox(
+              width: 358,
+              height: 31,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xff727DBC),
+                  onPrimary: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                ),
+                child: Text(
+                  '닫기',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontFamily: 'moebiusRegular',
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            )
           ],
         );
       },
@@ -334,7 +362,14 @@ class _DiaryScreenState extends State<DiaryScreen> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
-                        child: Text('글 작성하기'),
+                        child: Text(
+                          '글 작성하기',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: 'moebiusRegular',
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -381,7 +416,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                       width: 358,
                       height: 51,
                       child: ElevatedButton(
-                        onPressed: _saveStory,
+                        onPressed: _saveStoryAndNavigate,
                         style: ElevatedButton.styleFrom(
                           primary: Color(0xff727DBC),
                           onPrimary: Colors.white,
@@ -389,9 +424,17 @@ class _DiaryScreenState extends State<DiaryScreen> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
-                        child: Text('저장'),
+                        child: Text(
+                          '웹툰 생성하기',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: 'moebiusRegular',
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ),
+                    SizedBox(height: 16),
                   ],
                 ),
             ],
