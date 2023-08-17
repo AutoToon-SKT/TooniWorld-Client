@@ -41,12 +41,14 @@ flutter:
   assets:
     - assets/
     - assets/icons/
+    - assets/icons/home/
     - assets/splash/
     - assets/icons/navigation/
     - assets/icons/menu/
     - assets/icons/input/
     - assets/icons/choice/
     - assets/icons/diary/
+    - assets/images/home/
 
   
 

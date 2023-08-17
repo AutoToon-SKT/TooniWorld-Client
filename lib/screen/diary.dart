@@ -425,7 +425,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                           ),
                         ),
                         child: Text(
-                          '웹툰 생성하기',
+                          '만화 생성하기',
                           style: TextStyle(
                             fontSize: 18,
                             fontFamily: 'moebiusRegular',

@@ -1,5 +1,6 @@
 import 'package:SKT_FLY_AI/screen/choice.dart';
 import 'package:SKT_FLY_AI/screen/diary.dart';
+import 'package:SKT_FLY_AI/screen/homescreen.dart';
 import 'package:SKT_FLY_AI/widget/bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:SKT_FLY_AI/screen/menu_screen.dart';
@@ -76,18 +77,7 @@ class MainScreen extends StatelessWidget {
         body: TabBarView(
           physics: NeverScrollableScrollPhysics(),
           children: <Widget>[
-            Container(
-              child: Center(
-                child: Text(
-                  '홈화면',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 30,
-                    fontFamily: 'moebiusRegular',
-                  ),
-                ),
-              ),
-            ),
+            ADotHomeScreen(),
             Container(
               child: Center(),
             ),
