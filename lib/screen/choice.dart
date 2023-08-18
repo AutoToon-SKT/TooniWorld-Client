@@ -93,7 +93,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
             children: [
               SizedBox(height: 27.0),
               Text(
-                '카툰을 만들어 볼까요?',
+                '만화를 만들어 볼까요?',
                 style: TextStyle(
                   color: Color(0xff3B4866),
                   fontSize: 24,
@@ -103,7 +103,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
               ),
               SizedBox(height: 24),
               Text(
-                '카툰 이름 (Name)',
+                '만화 이름 (Name)',
                 style: TextStyle(
                   color: Color(0xff3B4866),
                   fontSize: 16,
@@ -121,7 +121,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                       borderSide:
                           BorderSide(color: Color(0xffD9D9D9)), // 변경된 부분
                     ),
-                    hintText: '카툰이름을 입력하세요.',
+                    hintText: '만화제목을 입력하세요.',
                     hintStyle: TextStyle(
                       color: Color(0xff6E6E6E),
                       fontSize: 16,
@@ -330,7 +330,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                     ),
                   ),
                   child: Text(
-                    '일기 작성하러 가기',
+                    '이야기 작성하러 가기',
                     style:
                         TextStyle(fontSize: 18, fontFamily: 'moebiusRegular'),
                   ),

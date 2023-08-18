@@ -117,7 +117,7 @@ class _MenuScreenState extends State<MenuScreen> {
                     SizedBox(height: 9),
                     ButtonWidget(
                       text: '투니닷',
-                      additionalText: '나의 일상을 AI가 카툰으로 그려주기',
+                      additionalText: '나의 일상을 AI가 만화로 그려주기',
                       icon: SvgPicture.asset(
                         'assets/icons/menu/toon.svg',
                       ),

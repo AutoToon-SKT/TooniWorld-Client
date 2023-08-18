@@ -1,6 +1,7 @@
 import 'package:SKT_FLY_AI/screen/choice.dart';
 import 'package:SKT_FLY_AI/screen/diary.dart';
 import 'package:SKT_FLY_AI/screen/homescreen.dart';
+import 'package:SKT_FLY_AI/screen/loading.dart';
 import 'package:SKT_FLY_AI/widget/bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:SKT_FLY_AI/screen/menu_screen.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         '/subsplash': (context) => SubSplashScreen(),
         '/choice': (context) => ChoiceScreen(),
         '/diary': (context) => DiaryScreen(),
+        '/loading': (context) => LoadingScreen(),
       },
     );
   }

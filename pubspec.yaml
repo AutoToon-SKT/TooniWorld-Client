@@ -48,6 +48,7 @@ flutter:
     - assets/icons/input/
     - assets/icons/choice/
     - assets/icons/diary/
+    - assets/icons/loading/
     - assets/images/home/
 
   

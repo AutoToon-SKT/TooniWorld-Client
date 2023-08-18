@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:SKT_FLY_AI/screen/show_cartoon.dart';
+import 'package:SKT_FLY_AI/screen/loading.dart';
 
 void main() {
   runApp(MyApp());
@@ -41,7 +41,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
     // Navigate to the WebtoonScreen
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => ShowCartoonScreen()),
+      MaterialPageRoute(builder: (context) => LoadingScreen()),
     );
 
     // Set isWriting to false
@@ -279,7 +279,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                   children: [
                     SizedBox(height: 15),
                     Text(
-                      '카툰이 잘 나오는 TIP!',
+                      '만화가 잘 나오는 TIP!',
                       style: TextStyle(
                         fontSize: 16,
                         fontFamily: 'moebiusBold',
