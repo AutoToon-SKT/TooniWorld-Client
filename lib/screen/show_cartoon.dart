@@ -196,7 +196,7 @@ class _FirstContainerState extends State<FirstContainer> {
                       width: 4,
                     ),
                     Text(
-                      ' \u{1F499} CUT 1 \u{1F499} ',
+                      ' \u{1F499} TOON 1 \u{1F499} ',
                       style: TextStyle(
                         color: Color(0xff3B4866),
                         fontSize: 30,
@@ -339,7 +339,7 @@ class _SecondContainerState extends State<SecondContainer> {
                       width: 4,
                     ),
                     Text(
-                      ' \u{1F49A} "CUT 2" \u{1F49A} ',
+                      ' \u{1F49A} "TOON 2" \u{1F49A} ',
                       style: TextStyle(
                         color: Color(0xff3B4866),
                         fontSize: 30,
@@ -482,7 +482,7 @@ class _ThirdContainerState extends State<ThirdContainer> {
                       width: 4,
                     ),
                     Text(
-                      ' \u{1F49B} "CUT 3" \u{1F49B} ',
+                      ' \u{1F49B} "TOON 3" \u{1F49B} ',
                       style: TextStyle(
                         color: Color(0xff3B4866),
                         fontSize: 30,
@@ -625,7 +625,7 @@ class _FourthContainerState extends State<FourthContainer> {
                       width: 4,
                     ),
                     Text(
-                      ' \u{1F49C} "CUT 4" \u{1F49C} ',
+                      ' \u{1F49C} "TOON 4" \u{1F49C} ',
                       style: TextStyle(
                         color: Color(0xff3B4866),
                         fontSize: 30,
