@@ -24,12 +24,20 @@ class _ShowCartoonScreenState extends State<ShowCartoonScreen> {
   PageController _pageController = PageController(initialPage: 0);
   int _currentPageIndex = 0;
 
+  List<int> selectedImageIndicesList = List.generate(4, (_) => -1);
+
   void _navigateToPage(int index) {
     _pageController.animateToPage(
       index,
       duration: Duration(milliseconds: 300),
       curve: Curves.easeInOut,
     );
+  }
+
+  void selectImage(int index, int containerIndex) {
+    setState(() {
+      selectedImageIndicesList[containerIndex] = index;
+    });
   }
 
   @override
@@ -77,7 +85,7 @@ class _ShowCartoonScreenState extends State<ShowCartoonScreen> {
                       _navigateToPage(_currentPageIndex - 1);
                     }
                   },
-                  icon: Icon(Icons.arrow_back), // 아이콘 변경 할거임
+                  icon: Icon(Icons.arrow_back),
                 ),
                 Text(
                   'PAGE',
@@ -94,13 +102,13 @@ class _ShowCartoonScreenState extends State<ShowCartoonScreen> {
                       _navigateToPage(_currentPageIndex + 1);
                     }
                   },
-                  icon: Icon(Icons.arrow_forward), // 아이콘 변경 할거임
+                  icon: Icon(Icons.arrow_forward),
                 ),
               ],
             ),
             Container(
               width: 358,
-              height: 764, // Adjust the height according to your needs
+              height: 764,
               child: PageView(
                 controller: _pageController,
                 onPageChanged: (index) {
@@ -109,10 +117,14 @@ class _ShowCartoonScreenState extends State<ShowCartoonScreen> {
                   });
                 },
                 children: [
-                  FirstContainer(),
-                  SecondContainer(),
-                  ThirdContainer(),
-                  FourthContainer(),
+                  FirstContainer(selectedImageIndicesList[0],
+                      (index) => selectImage(index, 0)),
+                  SecondContainer(selectedImageIndicesList[1],
+                      (index) => selectImage(index, 1)),
+                  ThirdContainer(selectedImageIndicesList[2],
+                      (index) => selectImage(index, 2)),
+                  FourthContainer(selectedImageIndicesList[3],
+                      (index) => selectImage(index, 3)),
                 ],
               ),
             ),
@@ -151,19 +163,16 @@ class _ShowCartoonScreenState extends State<ShowCartoonScreen> {
 }
 
 class FirstContainer extends StatefulWidget {
+  final int selectedImageIndex;
+  final Function(int) onSelect;
+
+  FirstContainer(this.selectedImageIndex, this.onSelect);
+
   @override
   _FirstContainerState createState() => _FirstContainerState();
 }
 
 class _FirstContainerState extends State<FirstContainer> {
-  int selectedImageIndex = -1;
-
-  void selectImage(int index) {
-    setState(() {
-      selectedImageIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -177,7 +186,7 @@ class _FirstContainerState extends State<FirstContainer> {
       ),
       child: Container(
         width: 358,
-        height: 764, // 변경된 부분
+        height: 764,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(6),
@@ -196,7 +205,7 @@ class _FirstContainerState extends State<FirstContainer> {
                       width: 4,
                     ),
                     Text(
-                      ' \u{1F499} TOON 1 \u{1F499} ',
+                      ' - TOON 1 - ',
                       style: TextStyle(
                         color: Color(0xff3B4866),
                         fontSize: 30,
@@ -211,16 +220,15 @@ class _FirstContainerState extends State<FirstContainer> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   GestureDetector(
-                    onTap: () => selectImage(1),
+                    onTap: () => widget.onSelect(0),
                     child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.circular(30), // Adjust the border radius
+                      //borderRadius: BorderRadius.circular(30),
                       child: Container(
                         width: 286,
                         height: 194,
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: selectedImageIndex == 1
+                            color: widget.selectedImageIndex == 0
                                 ? Colors.blue
                                 : Colors.transparent,
                             width: 3,
@@ -235,16 +243,15 @@ class _FirstContainerState extends State<FirstContainer> {
                   ),
                   SizedBox(height: 34),
                   GestureDetector(
-                    onTap: () => selectImage(1),
+                    onTap: () => widget.onSelect(1),
                     child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.circular(30), // Adjust the border radius
+                      //borderRadius: BorderRadius.circular(30),
                       child: Container(
                         width: 286,
                         height: 194,
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: selectedImageIndex == 1
+                            color: widget.selectedImageIndex == 1
                                 ? Colors.blue
                                 : Colors.transparent,
                             width: 3,
@@ -259,16 +266,15 @@ class _FirstContainerState extends State<FirstContainer> {
                   ),
                   SizedBox(height: 34),
                   GestureDetector(
-                    onTap: () => selectImage(1),
+                    onTap: () => widget.onSelect(2),
                     child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.circular(30), // Adjust the border radius
+                      //borderRadius: BorderRadius.circular(30),
                       child: Container(
                         width: 286,
                         height: 194,
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: selectedImageIndex == 1
+                            color: widget.selectedImageIndex == 2
                                 ? Colors.blue
                                 : Colors.transparent,
                             width: 3,
@@ -283,7 +289,6 @@ class _FirstContainerState extends State<FirstContainer> {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
               SizedBox(height: 20),
             ],
           ),
@@ -293,20 +298,20 @@ class _FirstContainerState extends State<FirstContainer> {
   }
 }
 
+// Similar changes in SecondContainer, ThirdContainer, and FourthContainer
+
+// Run the app
 class SecondContainer extends StatefulWidget {
+  final int selectedImageIndex;
+  final Function(int) onSelect;
+
+  SecondContainer(this.selectedImageIndex, this.onSelect);
+
   @override
   _SecondContainerState createState() => _SecondContainerState();
 }
 
 class _SecondContainerState extends State<SecondContainer> {
-  int selectedImageIndex = -1;
-
-  void selectImage(int index) {
-    setState(() {
-      selectedImageIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -320,7 +325,7 @@ class _SecondContainerState extends State<SecondContainer> {
       ),
       child: Container(
         width: 358,
-        height: 764, // 변경된 부분
+        height: 764,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(6),
@@ -339,7 +344,7 @@ class _SecondContainerState extends State<SecondContainer> {
                       width: 4,
                     ),
                     Text(
-                      ' \u{1F49A} "TOON 2" \u{1F49A} ',
+                      ' - TOON 2 - ',
                       style: TextStyle(
                         color: Color(0xff3B4866),
                         fontSize: 30,
@@ -354,16 +359,15 @@ class _SecondContainerState extends State<SecondContainer> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   GestureDetector(
-                    onTap: () => selectImage(1),
+                    onTap: () => widget.onSelect(0),
                     child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.circular(30), // Adjust the border radius
+                      //borderRadius: BorderRadius.circular(30),
                       child: Container(
                         width: 286,
                         height: 194,
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: selectedImageIndex == 1
+                            color: widget.selectedImageIndex == 0
                                 ? Colors.blue
                                 : Colors.transparent,
                             width: 3,
@@ -378,16 +382,15 @@ class _SecondContainerState extends State<SecondContainer> {
                   ),
                   SizedBox(height: 34),
                   GestureDetector(
-                    onTap: () => selectImage(1),
+                    onTap: () => widget.onSelect(1),
                     child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.circular(30), // Adjust the border radius
+                      //borderRadius: BorderRadius.circular(30),
                       child: Container(
                         width: 286,
                         height: 194,
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: selectedImageIndex == 1
+                            color: widget.selectedImageIndex == 1
                                 ? Colors.blue
                                 : Colors.transparent,
                             width: 3,
@@ -402,16 +405,15 @@ class _SecondContainerState extends State<SecondContainer> {
                   ),
                   SizedBox(height: 34),
                   GestureDetector(
-                    onTap: () => selectImage(1),
+                    onTap: () => widget.onSelect(2),
                     child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.circular(30), // Adjust the border radius
+                      //borderRadius: BorderRadius.circular(30),
                       child: Container(
                         width: 286,
                         height: 194,
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: selectedImageIndex == 1
+                            color: widget.selectedImageIndex == 2
                                 ? Colors.blue
                                 : Colors.transparent,
                             width: 3,
@@ -426,7 +428,6 @@ class _SecondContainerState extends State<SecondContainer> {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
               SizedBox(height: 20),
             ],
           ),
@@ -437,19 +438,16 @@ class _SecondContainerState extends State<SecondContainer> {
 }
 
 class ThirdContainer extends StatefulWidget {
+  final int selectedImageIndex;
+  final Function(int) onSelect;
+
+  ThirdContainer(this.selectedImageIndex, this.onSelect);
+
   @override
   _ThirdContainerState createState() => _ThirdContainerState();
 }
 
 class _ThirdContainerState extends State<ThirdContainer> {
-  int selectedImageIndex = -1;
-
-  void selectImage(int index) {
-    setState(() {
-      selectedImageIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -463,7 +461,7 @@ class _ThirdContainerState extends State<ThirdContainer> {
       ),
       child: Container(
         width: 358,
-        height: 764, // 변경된 부분
+        height: 764,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(6),
@@ -482,7 +480,7 @@ class _ThirdContainerState extends State<ThirdContainer> {
                       width: 4,
                     ),
                     Text(
-                      ' \u{1F49B} "TOON 3" \u{1F49B} ',
+                      ' - TOON 3 - ',
                       style: TextStyle(
                         color: Color(0xff3B4866),
                         fontSize: 30,
@@ -497,16 +495,15 @@ class _ThirdContainerState extends State<ThirdContainer> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   GestureDetector(
-                    onTap: () => selectImage(1),
+                    onTap: () => widget.onSelect(0),
                     child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.circular(30), // Adjust the border radius
+                      //borderRadius: BorderRadius.circular(30),
                       child: Container(
                         width: 286,
                         height: 194,
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: selectedImageIndex == 1
+                            color: widget.selectedImageIndex == 0
                                 ? Colors.blue
                                 : Colors.transparent,
                             width: 3,
@@ -521,16 +518,15 @@ class _ThirdContainerState extends State<ThirdContainer> {
                   ),
                   SizedBox(height: 34),
                   GestureDetector(
-                    onTap: () => selectImage(1),
+                    onTap: () => widget.onSelect(1),
                     child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.circular(30), // Adjust the border radius
+                      //borderRadius: BorderRadius.circular(30),
                       child: Container(
                         width: 286,
                         height: 194,
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: selectedImageIndex == 1
+                            color: widget.selectedImageIndex == 1
                                 ? Colors.blue
                                 : Colors.transparent,
                             width: 3,
@@ -545,16 +541,15 @@ class _ThirdContainerState extends State<ThirdContainer> {
                   ),
                   SizedBox(height: 34),
                   GestureDetector(
-                    onTap: () => selectImage(1),
+                    onTap: () => widget.onSelect(2),
                     child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.circular(30), // Adjust the border radius
+                      //borderRadius: BorderRadius.circular(30),
                       child: Container(
                         width: 286,
                         height: 194,
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: selectedImageIndex == 1
+                            color: widget.selectedImageIndex == 2
                                 ? Colors.blue
                                 : Colors.transparent,
                             width: 3,
@@ -569,7 +564,6 @@ class _ThirdContainerState extends State<ThirdContainer> {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
               SizedBox(height: 20),
             ],
           ),
@@ -580,19 +574,16 @@ class _ThirdContainerState extends State<ThirdContainer> {
 }
 
 class FourthContainer extends StatefulWidget {
+  final int selectedImageIndex;
+  final Function(int) onSelect;
+
+  FourthContainer(this.selectedImageIndex, this.onSelect);
+
   @override
   _FourthContainerState createState() => _FourthContainerState();
 }
 
 class _FourthContainerState extends State<FourthContainer> {
-  int selectedImageIndex = -1;
-
-  void selectImage(int index) {
-    setState(() {
-      selectedImageIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -606,7 +597,7 @@ class _FourthContainerState extends State<FourthContainer> {
       ),
       child: Container(
         width: 358,
-        height: 764, // 변경된 부분
+        height: 764,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(6),
@@ -625,7 +616,7 @@ class _FourthContainerState extends State<FourthContainer> {
                       width: 4,
                     ),
                     Text(
-                      ' \u{1F49C} "TOON 4" \u{1F49C} ',
+                      ' - TOON 4 - ',
                       style: TextStyle(
                         color: Color(0xff3B4866),
                         fontSize: 30,
@@ -640,16 +631,15 @@ class _FourthContainerState extends State<FourthContainer> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   GestureDetector(
-                    onTap: () => selectImage(1),
+                    onTap: () => widget.onSelect(0),
                     child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.circular(30), // Adjust the border radius
+                      //borderRadius: BorderRadius.circular(30),
                       child: Container(
                         width: 286,
                         height: 194,
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: selectedImageIndex == 1
+                            color: widget.selectedImageIndex == 0
                                 ? Colors.blue
                                 : Colors.transparent,
                             width: 3,
@@ -664,16 +654,15 @@ class _FourthContainerState extends State<FourthContainer> {
                   ),
                   SizedBox(height: 34),
                   GestureDetector(
-                    onTap: () => selectImage(1),
+                    onTap: () => widget.onSelect(1),
                     child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.circular(30), // Adjust the border radius
+                      //borderRadius: BorderRadius.circular(30),
                       child: Container(
                         width: 286,
                         height: 194,
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: selectedImageIndex == 1
+                            color: widget.selectedImageIndex == 1
                                 ? Colors.blue
                                 : Colors.transparent,
                             width: 3,
@@ -688,16 +677,15 @@ class _FourthContainerState extends State<FourthContainer> {
                   ),
                   SizedBox(height: 34),
                   GestureDetector(
-                    onTap: () => selectImage(1),
+                    onTap: () => widget.onSelect(2),
                     child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.circular(30), // Adjust the border radius
+                      //borderRadius: BorderRadius.circular(30),
                       child: Container(
                         width: 286,
                         height: 194,
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: selectedImageIndex == 1
+                            color: widget.selectedImageIndex == 2
                                 ? Colors.blue
                                 : Colors.transparent,
                             width: 3,
@@ -712,7 +700,6 @@ class _FourthContainerState extends State<FourthContainer> {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
               SizedBox(height: 20),
             ],
           ),
