@@ -116,8 +116,8 @@ class _MenuScreenState extends State<MenuScreen> {
                     ),
                     SizedBox(height: 9),
                     ButtonWidget(
-                      text: '투니닷',
-                      additionalText: '나의 일상을 AI가 만화로 그려주기',
+                      text: '투니월드',
+                      additionalText: '나의 일상을 AI가 만화풍으로 그려주기',
                       icon: SvgPicture.asset(
                         'assets/icons/menu/toon.svg',
                       ),
@@ -149,7 +149,7 @@ class ButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        if (text == '투니닷') {
+        if (text == '투니월드') {
           Navigator.push(
             context,
             MaterialPageRoute(

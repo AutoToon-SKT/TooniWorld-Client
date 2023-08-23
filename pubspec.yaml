@@ -17,6 +17,9 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.7
+  path_provider: ^2.0.2
+  fluttertoast: ^8.0.3
+  cached_network_image: ^3.0.0
   
 
 dev_dependencies:
@@ -51,6 +54,8 @@ flutter:
     - assets/icons/loading/
     - assets/icons/showcartoon/
     - assets/images/home/
+    - assets/images/result/
+    - assets/images/complete/
 
   
 

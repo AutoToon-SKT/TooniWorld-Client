@@ -219,7 +219,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100.0),
+        preferredSize: Size.fromHeight(105.0),
         child: AppBar(
           backgroundColor: Color(0xffF1F2F6),
           elevation: 0,
@@ -228,7 +228,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
               SizedBox(height: 28.0),
               SvgPicture.asset(
                 'assets/icons/input/logo.svg',
-                height: 95,
+                height: 100,
               ),
             ],
           ),
