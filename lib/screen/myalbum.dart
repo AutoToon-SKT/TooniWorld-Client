@@ -35,7 +35,7 @@ class MyAccountPage extends StatelessWidget {
               ),
               SizedBox(width: 10),
               Text(
-                'COMMUYNITY',
+                'My World',
                 style: TextStyle(
                   fontSize: 20,
                   fontFamily: 'moebiusBold',
@@ -44,18 +44,29 @@ class MyAccountPage extends StatelessWidget {
               ),
             ],
           ),
-          backgroundColor: Color(0xffF1F2F6), // AppBar 배경색 투명하게 설정
+          backgroundColor: Color(0xffF1F2F6),
           elevation: 0,
           actions: [
             IconButton(
               icon: SvgPicture.asset(
                 'assets/icons/album/plus.svg',
+                width: 30,
+                height: 30,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, '/input'); // '/input' 경로로 이동
+                Navigator.pushNamed(context, '/input');
               },
             ),
-          ], // AppBar의 그림자 효과 제거
+            IconButton(
+              icon: SvgPicture.asset(
+                'assets/icons/album/message.svg',
+              ),
+              onPressed: () {
+                // 메시지 아이콘을 터치했을 때 실행될 동작 추가
+                // 예를 들어 메시지 창을 열거나 다른 페이지로 이동할 수 있음
+              },
+            ),
+          ],
         ),
         body: Column(
           children: [
@@ -75,7 +86,7 @@ class MyAccountPage extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            'Master',
+                            '임승환',
                             style: TextStyle(
                               color: Color(0xff3B4866),
                               fontSize: 20,
@@ -91,7 +102,7 @@ class MyAccountPage extends StatelessWidget {
                           // 음악 아이콘 추가
                           SizedBox(width: 3),
                           Text(
-                            '프리스타일 - Y',
+                            '아이브 - LOVE DIVE',
                             style: TextStyle(
                               color: Color(0xff3B4866),
                               fontSize: 12,
@@ -132,7 +143,7 @@ class MyAccountPage extends StatelessWidget {
                           ),
                           SizedBox(width: 16.0),
                           Text(
-                            '일촌: 50',
+                            '일촌 수: 100',
                             style: TextStyle(
                               color: Color(0xff3B4866),
                               fontSize: 14,
@@ -226,7 +237,16 @@ class MyAccountPage extends StatelessWidget {
                             ),
                             SizedBox(height: 8.0),
                             Text(
-                              'Liked by 100 people',
+                              '친구들이랑 재미있게 보낸 시간',
+                              style: TextStyle(
+                                color: Color(0xff3B4866),
+                                fontSize: 18,
+                                fontFamily: 'moebiusBold',
+                              ),
+                            ),
+                            SizedBox(height: 8.0),
+                            Text(
+                              '아침에 가족 모두 모여서 계획을 세운다. 엄마가 지도를 펴고, 아빠가 여행 가방을 싸기 시작... more',
                               style: TextStyle(
                                 color: Color(0xff3B4866),
                                 fontSize: 14,
@@ -235,16 +255,7 @@ class MyAccountPage extends StatelessWidget {
                             ),
                             SizedBox(height: 8.0),
                             Text(
-                              'Caption goes here',
-                              style: TextStyle(
-                                color: Color(0xff3B4866),
-                                fontSize: 14,
-                                fontFamily: 'moebiusRegular',
-                              ),
-                            ),
-                            SizedBox(height: 8.0),
-                            Text(
-                              'View all 20 comments',
+                              '이승호 : 정말 재미있겠다.',
                               style: TextStyle(
                                 color: Color(0xff3B4866),
                                 fontSize: 12,
@@ -252,14 +263,6 @@ class MyAccountPage extends StatelessWidget {
                               ),
                             ),
                             SizedBox(height: 8.0),
-                            Text(
-                              '2 hours ago',
-                              style: TextStyle(
-                                color: Color(0xff3B4866),
-                                fontSize: 12,
-                                fontFamily: 'moebiusRegular',
-                              ),
-                            ),
                           ],
                         ),
                       );
