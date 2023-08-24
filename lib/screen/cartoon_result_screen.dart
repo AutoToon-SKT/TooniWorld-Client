@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:SKT_FLY_AI/screen/myalbum.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart'; // 추가
 
@@ -160,8 +161,16 @@ class _CartoonResultScreenState extends State<CartoonResultScreen> {
                 width: 368,
                 height: 51,
                 child: ElevatedButton(
-                  onPressed: () {
-                    _shareToCommunity(); // 커뮤니티 공유 버튼 클릭 시 토스트 메시지 표시
+                  onPressed: () async {
+                    _shareToCommunity();
+                    await Future.delayed(
+                        Duration(seconds: 2)); // toast 메시지가 나타나는 시간을 대기
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              MyAccountPage()), // MyAlbumPage으로 이동
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Color(0xff727DBC),

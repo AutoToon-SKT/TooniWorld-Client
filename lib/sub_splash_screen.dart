@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:SKT_FLY_AI/screen/input.dart';
+import 'package:SKT_FLY_AI/screen/myalbum.dart';
 
 class SubSplashScreen extends StatefulWidget {
   @override
@@ -18,7 +18,7 @@ class _SubSplashScreenState extends State<SubSplashScreen> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-            builder: (context) => InputScreen()), // InputScreen으로 이동
+            builder: (context) => MyAccountPage()), // MyAccountPage으로 이동
       );
     });
   }

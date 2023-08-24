@@ -53,9 +53,11 @@ flutter:
     - assets/icons/diary/
     - assets/icons/loading/
     - assets/icons/showcartoon/
+    - assets/icons/album/
     - assets/images/home/
     - assets/images/result/
     - assets/images/complete/
+    - assets/images/friend/
 
   
 
