@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:SKT_FLY_AI/screen/loading.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert'; // 이 줄을 추가해주세요
 
 void main() {
   runApp(MyApp());
@@ -31,14 +33,43 @@ class _DiaryScreenState extends State<DiaryScreen> {
     });
   }
 
-  void _saveStoryAndNavigate() {
+  void _saveStoryAndNavigate() async {
     String story = storyController.text;
-    // Here, you can add the logic to save the story if needed.
+
+    final infoId = 8; // 실제 사용자 ID로 대체
+    final url = Uri.parse('http://15.164.170.90:1234/$infoId/story');
+    final response = await http.post(
+      url,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: json.encode({
+        'storyContent': story,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      final responseData = json.decode(response.body);
+
+      int infoId = responseData['data']['infoId'];
+      int storyId = responseData['data']['storyId'];
+
+      // infoId와 storyId를 활용한 처리
+      // ...
+    } else if (response.statusCode == 400) {
+      final responseData = json.decode(response.body);
+      String errorMessage = responseData['message'];
+      // 경고 또는 에러 메시지를 표시하거나 다른 처리를 수행할 수 있습니다.
+      print('에러 발생: $errorMessage');
+    } else {
+      // 기타 상태 코드에 대한 처리
+      // ...
+    }
 
     // Clear the text field
     storyController.clear();
 
-    // Navigate to the WebtoonScreen
+    // Navigate to the LoadingScreen
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => LoadingScreen()),

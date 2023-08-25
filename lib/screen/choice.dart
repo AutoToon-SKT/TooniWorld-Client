@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:SKT_FLY_AI/screen/diary.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert'; // 이 줄을 추가해주세요
 
 void main() {
   runApp(MyApp());
@@ -25,11 +27,70 @@ class ChoiceScreen extends StatefulWidget {
 class _ChoiceScreenState extends State<ChoiceScreen> {
   TextEditingController cartoonNameController = TextEditingController();
   TextEditingController locationController = TextEditingController();
-  DateTime? selectedDateTime;
+  DateTime? selectedDateTime; // Nullable DateTime
   String selectedWhoWith = '누구랑';
   List<String> selectedMoods = [];
   String selectedWeather = ''; // New variable for Weather selection
   String selectedStyle = ''; // New variable for Art Style selection
+
+  /* spring 연동 */
+  void _sendDataToBackend() async {
+    final userId = 8; // 실제 사용자 ID로 대체
+    final url = Uri.parse('http://15.164.170.90:1234/$userId/info');
+
+    final response = await http.post(
+      url,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: json.encode({
+        'toonName': cartoonNameController.text,
+        'place': locationController.text,
+        'toonDate': selectedDateTime?.toIso8601String(),
+        'partner': selectedWhoWith,
+        'mood': selectedMoods.join(','),
+        'weather': selectedWeather,
+        'toonStyle': selectedStyle,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      // 성공 처리
+      final responseData = json.decode(response.body);
+      final code = responseData['code'];
+
+      if (code == 201) {
+        // 카툰 정보 저장 성공 시 처리
+        final infoId = responseData['data']['infoId'];
+        final userId = responseData['data']['userId'];
+        final toonName = responseData['data']['toonName'];
+
+        print('카툰 정보 저장 성공');
+        print('infoId: $infoId');
+        print('userId: $userId');
+        print('toonName: $toonName');
+      } else {
+        // 카툰 정보 저장 실패 시 처리
+        print('카툰 정보 저장 실패');
+      }
+    } else if (response.statusCode == 400) {
+      // 클라이언트 요청 오류 처리
+      final responseData = json.decode(response.body);
+      final code = responseData['code'];
+      final message = responseData['message'];
+      final path = responseData['path'];
+      final method = responseData['method'];
+
+      print('클라이언트 요청 오류:');
+      print('Code: $code');
+      print('Message: $message');
+      print('Path: $path');
+      print('Method: $method');
+    } else {
+      // 요청 실패 시 처리
+      print('Failed to send data. Status code: ${response.statusCode}');
+    }
+  }
 
   void _selectDateTime() async {
     final DateTime? pickedDateTime = await showDatePicker(
@@ -40,21 +101,9 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
     );
 
     if (pickedDateTime != null) {
-      final TimeOfDay? pickedTime = await showTimePicker(
-        context: context,
-        initialTime: TimeOfDay.now(),
-      );
-
-      if (pickedTime != null) {
-        setState(() {
-          selectedDateTime = DateTime(
-            pickedDateTime.year,
-            pickedDateTime.month,
-            pickedDateTime.day,
-            pickedTime.hour,
-          );
-        });
-      }
+      setState(() {
+        selectedDateTime = pickedDateTime;
+      });
     }
   }
 
@@ -63,6 +112,19 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
     cartoonNameController.dispose();
     locationController.dispose();
     super.dispose();
+  }
+
+  void _sendStoryData() async {
+    // 데이터 전송 로직
+    _sendDataToBackend();
+
+    // 데이터 전송 후 이동
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => DiaryScreen(), // 데이터 전달
+      ),
+    );
   }
 
   @override
@@ -201,8 +263,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                     children: [
                       Text(
                         selectedDateTime != null
-                            ? DateFormat('yyyy-MM-dd HH:mm')
-                                .format(selectedDateTime!)
+                            ? DateFormat('yyyy-MM-dd').format(selectedDateTime!)
                             : '날짜와 시간을 입력하세요.',
                         style: TextStyle(
                           color: Color(0xff6E6E6E),
@@ -333,14 +394,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                 width: 358,
                 height: 51,
                 child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DiaryScreen(),
-                      ),
-                    );
-                  },
+                  onPressed: _sendStoryData, // "이야기 작성하기" 버튼을 눌렀을 때 호출할 함수
                   style: ElevatedButton.styleFrom(
                     primary: Color(0xff727DBC),
                     onPrimary: Colors.white,

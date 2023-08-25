@@ -20,6 +20,8 @@ dependencies:
   path_provider: ^2.0.2
   fluttertoast: ^8.0.3
   cached_network_image: ^3.0.0
+
+  http: ^0.13.3  # HTTP 패키지 추가
   
 
 dev_dependencies:
