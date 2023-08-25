@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         '/input': (context) => InputScreen(),
         '/subsplash': (context) => SubSplashScreen(),
         '/choice': (context) => ChoiceScreen(),
-        '/diary': (context) => DiaryScreen(),
+        //'/diary': (context) => DiaryScreen(),
         '/loading': (context) => LoadingScreen(),
         '/album': (context) => MyAccountPage(),
         '/showcartoon': (context) => ShowCartoonScreen(),

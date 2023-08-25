@@ -114,6 +114,8 @@ class _CartoonResultScreenState extends State<CartoonResultScreen> {
                   controller: _pageController,
                   itemCount: widget.selectedImageIndicesList.length,
                   itemBuilder: (context, index) {
+                    int selectedImageIndex =
+                        widget.selectedImageIndicesList[index];
                     return Column(
                       children: [
                         SizedBox(height: 10),
@@ -127,17 +129,17 @@ class _CartoonResultScreenState extends State<CartoonResultScreen> {
                               BlendMode.saturation,
                             ),
                             child: Image.asset(
-                              'assets/images/complete/img${widget.selectedImageIndicesList[index]}.png',
+                              'assets/images/complete/img${selectedImageIndex}.png',
                             ),
                           ),
                         ),
-                        SizedBox(height: 30), // 이미지와 설명 사이의 간격 조절
+                        SizedBox(height: 30),
                         Container(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 20), // 좌우 간격 설정
+                          padding: EdgeInsets.symmetric(horizontal: 20),
                           child: Text(
-                            imageDescriptions[index], // 해당 이미지의 설명 표시
-                            textAlign: TextAlign.center, // 가운데 정렬
+                            imageDescriptions[
+                                selectedImageIndex], // 이미지 인덱스에 해당하는 설명 사용
+                            textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Color(0xff3B4866),
                               fontSize: 16,

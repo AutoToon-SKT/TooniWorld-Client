@@ -4,21 +4,25 @@ import 'package:SKT_FLY_AI/screen/loading.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert'; // 이 줄을 추가해주세요
 
-void main() {
-  runApp(MyApp());
-}
+// void main() {
+//   runApp(MyApp());
+// }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'My App',
-      home: DiaryScreen(),
-    );
-  }
-}
+// class MyApp extends StatelessWidget {
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'My App',
+//       home: DiaryScreen(),
+//     );
+//   }
+// }
 
 class DiaryScreen extends StatefulWidget {
+  final int infoId; // Add this line
+
+  DiaryScreen({required this.infoId});
   @override
   _DiaryScreenState createState() => _DiaryScreenState();
 }
@@ -36,8 +40,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
   void _saveStoryAndNavigate() async {
     String story = storyController.text;
 
-    final infoId = 8; // 실제 사용자 ID로 대체
-    final url = Uri.parse('http://15.164.170.90:1234/$infoId/story');
+    final url = Uri.parse('http://15.164.170.90:1234/${widget.infoId}/story');
     final response = await http.post(
       url,
       headers: {
