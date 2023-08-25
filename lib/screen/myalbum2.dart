@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyAccountPage(),
+      home: MyAccountPage2(),
       routes: {
         '/input': (context) => InputScreen(), // InputScreen을 '/input' 경로로 등록
       },
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyAccountPage extends StatelessWidget {
+class MyAccountPage2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -120,7 +120,7 @@ class MyAccountPage extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            '캔버스 4',
+                            '캔버스 5',
                             style: TextStyle(
                               color: Color(0xff3B4866),
                               fontSize: 14,
@@ -198,7 +198,7 @@ class MyAccountPage extends StatelessWidget {
               child: TabBarView(
                 children: [
                   ListView.builder(
-                    itemCount: 4,
+                    itemCount: 5,
                     itemBuilder: (context, index) {
                       return Container(
                         padding: EdgeInsets.all(16.0),
@@ -210,7 +210,7 @@ class MyAccountPage extends StatelessWidget {
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                   image: AssetImage(
-                                      'assets/images/complete/img$index.png'),
+                                      'assets/images/complete2/img$index.png'),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -274,13 +274,13 @@ class MyAccountPage extends StatelessWidget {
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(
-                                'assets/images/complete/img$index.png'),
+                                'assets/images/complete2/img$index.png'),
                             fit: BoxFit.cover,
                           ),
                         ),
                       );
                     },
-                    itemCount: 4, // 이미지 개수 설정
+                    itemCount: 5, // 이미지 개수 설정
                   ),
                 ],
               ),

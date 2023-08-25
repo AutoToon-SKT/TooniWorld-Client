@@ -62,7 +62,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(
-            '일기 작성 법',
+            '이야기 작성 법',
             style: TextStyle(
               fontSize: 20,
               fontFamily: 'moebiusBold',
@@ -83,9 +83,11 @@ class _DiaryScreenState extends State<DiaryScreen> {
                     color: Color(0xff858080),
                   ),
                 ),
-                SizedBox(height: 12),
+                SizedBox(
+                  height: 5,
+                ),
                 Text(
-                  '날짜: 일기를 작성한 날짜를 기록합니다. ex) 2023년 8월 17일 (수요일)',
+                  '날짜: 이야기를 작성한 날짜를 기록합니다. ex) 2023년 8월 17일 (수요일)',
                   style: TextStyle(
                     fontSize: 12,
                     fontFamily: 'moebiusRegular',
@@ -101,16 +103,16 @@ class _DiaryScreenState extends State<DiaryScreen> {
                     color: Color(0xff858080),
                   ),
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 15),
                 Text(
-                  '2. 일기 내용:',
+                  '2. 이야기 내용:',
                   style: TextStyle(
                     fontSize: 14,
                     fontFamily: 'moebiusRegular',
                     color: Color(0xff858080),
                   ),
                 ),
-                SizedBox(height: 12),
+                SizedBox(height: 5),
                 Text(
                   '자유롭게 이야기를 풀어나가며 기록합니다.',
                   style: TextStyle(
@@ -121,7 +123,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                 ),
                 SizedBox(height: 8),
                 Text(
-                  '시작 문장: 오늘의 기분이나 일기의 시작을 나타내는 문장을 작성합니다. ex) 안녕하세요! 오늘은 기분 좋은 하루를 보냈어요.',
+                  '시작 문장: 오늘의 기분이나 이야기의 시작을 나타내는 문장을 작성합니다. ex) 안녕하세요! 오늘은 기분 좋은 하루를 보냈어요.',
                   style: TextStyle(
                     fontSize: 12,
                     fontFamily: 'moebiusRegular',
@@ -146,7 +148,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                     color: Color(0xff858080),
                   ),
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 15),
                 Text(
                   '3. 기록 방법:',
                   style: TextStyle(
@@ -155,7 +157,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                     color: Color(0xff858080),
                   ),
                 ),
-                SizedBox(height: 12),
+                SizedBox(height: 5),
                 Text(
                   '그가 청구서를 어떻게 냈는지, 어떤 우체국을 갚았는지 간략하게 언급했습니다.',
                   style: TextStyle(
@@ -164,7 +166,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                     color: Color(0xff858080),
                   ),
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 15),
                 Text(
                   '4. 끝맺음:',
                   style: TextStyle(
@@ -173,7 +175,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                     color: Color(0xff858080),
                   ),
                 ),
-                SizedBox(height: 12),
+                SizedBox(height: 5),
                 Text(
                   '희망과 다짐: 미래에 대한 희망이나 다음 날에 대한 다짐을 찾아보세요.',
                   style: TextStyle(
@@ -275,7 +277,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
               SizedBox(height: 8),
               if (!isWriting)
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 15),
                     Text(
@@ -288,16 +290,16 @@ class _DiaryScreenState extends State<DiaryScreen> {
                     ),
                     SizedBox(height: 15),
                     Text(
-                      '일기는 자세하고 세심하게 작성할수록 더 좋은 그림이 나올 수 있어요!',
+                      '이야기는 자세하게 작성할수록 더 좋은 그림이 나올 수 있어요!',
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 14,
                         fontFamily: 'moebiusRegular',
                         color: Color(0xff858080),
                       ),
                     ),
-                    SizedBox(height: 12),
+                    SizedBox(height: 20),
                     Text(
-                      '● 사용자가 경험한 일에 대해 자세하게 한줄 한줄 작성을 해주세요!',
+                      ' ● 사용자가 경험한 일에 대해 자세하게 한줄 한줄 작성을 해주세요.',
                       style: TextStyle(
                         fontSize: 11,
                         fontFamily: 'moebiusRegular',
@@ -306,7 +308,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                     ),
                     SizedBox(height: 12),
                     Text(
-                      '● 같은 경험을 한 사람이 있으면 해당 인물에 대해서도 자세히 묘사해주세요!',
+                      ' ● 같은 경험을 한 사람이 있으면 해당 인물에 대해서도 자세히 묘사해주세요.',
                       style: TextStyle(
                         fontSize: 11,
                         fontFamily: 'moebiusRegular',
@@ -315,7 +317,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                     ),
                     SizedBox(height: 12),
                     Text(
-                      '  ● 생각나는 장소가 있다면 해당 장소를 자세히 묘사해주세요!',
+                      ' ● 생각나는 장소가 있다면 해당 장소를 자세히 묘사해주세요.',
                       style: TextStyle(
                         fontSize: 11,
                         fontFamily: 'moebiusRegular',
@@ -324,14 +326,14 @@ class _DiaryScreenState extends State<DiaryScreen> {
                     ),
                     SizedBox(height: 12),
                     Text(
-                      '  ● 그림에 추가하고 싶은 요소가 있다면 해당 요소를 자세히 묘사해주세요!',
+                      ' ● 그림에 추가하고 싶은 요소가 있다면 해당 요소를 자세히 묘사해주세요.',
                       style: TextStyle(
                         fontSize: 11,
                         fontFamily: 'moebiusRegular',
                         color: Color(0xff858080),
                       ),
                     ),
-                    SizedBox(height: 15),
+                    SizedBox(height: 23),
                     Text(
                       '주의 사항!',
                       style: TextStyle(
@@ -342,7 +344,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                     ),
                     SizedBox(height: 12),
                     Text(
-                      '  ● 욕설 / 음란 / 기타 위법에 해당하는 글은 작성을 금지합니다.',
+                      ' ● 욕설 / 음란 / 기타 위법에 해당하는 글은 작성을 금지합니다.',
                       style: TextStyle(
                         fontSize: 12,
                         fontFamily: 'moebiusRegular',
@@ -363,7 +365,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                           ),
                         ),
                         child: Text(
-                          '글 작성하기',
+                          '확인',
                           style: TextStyle(
                             fontSize: 18,
                             fontFamily: 'moebiusRegular',

@@ -102,13 +102,32 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                 ),
               ),
               SizedBox(height: 24),
-              Text(
-                '만화 이름 (Name)',
-                style: TextStyle(
-                  color: Color(0xff3B4866),
-                  fontSize: 16,
-                  fontFamily: 'moebiusBold',
-                ),
+              Row(
+                children: [
+                  Text(
+                    '제목 (Title)',
+                    style: TextStyle(
+                      color: Color(0xff3B4866),
+                      fontSize: 16,
+                      fontFamily: 'moebiusBold',
+                    ),
+                  ),
+                  SizedBox(width: 4), // 아이콘과 제목 사이 간격 조절
+                  Icon(
+                    Icons.star,
+                    color: Color(0xffFF7171),
+                    size: 12, // 별 아이콘의 크기 조절
+                  ),
+                  SizedBox(width: 2),
+                  Text(
+                    '필수 입력 사항',
+                    style: TextStyle(
+                      color: Color(0xffFF7171),
+                      fontSize: 12,
+                      fontFamily: 'moebiusBold',
+                    ),
+                  ),
+                ],
               ),
               SizedBox(height: 8),
               Container(
@@ -121,7 +140,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                       borderSide:
                           BorderSide(color: Color(0xffD9D9D9)), // 변경된 부분
                     ),
-                    hintText: '만화제목을 입력하세요.',
+                    hintText: '제목을 입력하세요.',
                     hintStyle: TextStyle(
                       color: Color(0xff6E6E6E),
                       fontSize: 16,
@@ -149,7 +168,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                     border: OutlineInputBorder(
                       borderSide: BorderSide(color: Color(0xffD9D9D9)),
                     ),
-                    hintText: '방문하였거나 추억이 있는 장소를 입력하세요.',
+                    hintText: '장소를 입력하세요.',
                     hintStyle: TextStyle(
                       color: Color(0xff6E6E6E),
                       fontSize: 16,
@@ -184,7 +203,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                         selectedDateTime != null
                             ? DateFormat('yyyy-MM-dd HH:mm')
                                 .format(selectedDateTime!)
-                            : '날짜와 시간',
+                            : '날짜와 시간을 입력하세요.',
                         style: TextStyle(
                           color: Color(0xff6E6E6E),
                           fontSize: 16,
@@ -202,7 +221,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
               /* 카테고리 */
               SizedBox(height: 24),
               Text(
-                '카테고리(Category)',
+                '카테고리 (Category)',
                 style: TextStyle(
                   color: Color(0xff3B4866),
                   fontSize: 16,
@@ -214,7 +233,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '누구랑(Who)',
+                    '누구랑 (Who)',
                     style: TextStyle(
                       color: Color(0xff3B4866),
                       fontSize: 14,
@@ -225,10 +244,10 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      buildWhoWithButton('가족'),
+                      buildWhoWithButton('혼자'),
                       buildWhoWithButton('친구'),
                       buildWhoWithButton('연인'),
-                      buildWhoWithButton('혼자'),
+                      buildWhoWithButton('가족'),
                       buildWhoWithButton('반려동물'),
                     ],
                   ),
@@ -304,9 +323,9 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                     ),
                   ),
                   SizedBox(height: 8),
-                  buildArtStyleCheckbox('AI 그림체'),
+                  buildArtStyleCheckbox('애니메이션'),
                   SizedBox(height: 8), // 체크박스 간 간격 조절
-                  buildArtStyleCheckbox('웹툰 그림체'),
+                  buildArtStyleCheckbox('스케치'),
                 ],
               ),
               SizedBox(height: 28),
@@ -330,7 +349,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                     ),
                   ),
                   child: Text(
-                    '이야기 작성하러 가기',
+                    '이야기 작성하기',
                     style:
                         TextStyle(fontSize: 18, fontFamily: 'moebiusRegular'),
                   ),

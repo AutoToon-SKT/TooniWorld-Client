@@ -80,15 +80,74 @@ class _ShowCartoonScreenState extends State<ShowCartoonScreen> {
           children: [
             SizedBox(height: 50),
             Text(
-              "\u{1F3A8}  만화 장면 선택하기  \u{1F3A8}",
+              "\u{1F3A8}  베스트 컷 선택  \u{1F3A8}",
               style: TextStyle(
                 color: Color(0xff3B4866),
-                fontSize: 24,
+                fontSize: 28,
                 fontFamily: 'moebiusRegular',
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 20),
+            Stack(
+              children: [
+                Container(
+                  width: 358,
+                  height: 764,
+                  child: PageView(
+                    controller: _pageController,
+                    onPageChanged: (index) {
+                      setState(() {
+                        _currentPageIndex = index;
+                      });
+                    },
+                    children: [
+                      FirstContainer(
+                        selectedImageIndicesList[0],
+                        (containerIndex, imageIndex) =>
+                            selectImage(imageIndex, containerIndex),
+                      ),
+                      SecondContainer(
+                        selectedImageIndicesList[1],
+                        (containerIndex, imageIndex) =>
+                            selectImage(imageIndex, containerIndex),
+                      ),
+                      ThirdContainer(
+                        selectedImageIndicesList[2],
+                        (containerIndex, imageIndex) =>
+                            selectImage(imageIndex, containerIndex),
+                      ),
+                      FourthContainer(
+                        selectedImageIndicesList[3],
+                        (containerIndex, imageIndex) =>
+                            selectImage(imageIndex, containerIndex),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: 8, // 조절하고자 하는 위치 값
+                  left: 29, // 조절하고자 하는 위치 값
+                  child: SvgPicture.asset(
+                    'assets/icons/diary/circle.svg',
+                    width: 300,
+                  ),
+                ),
+                Positioned(
+                  top: -20, // 다른 SVG 이미지의 위쪽에 겹치게 조절하고자 하는 위치 값
+                  left: 29, // 조절하고자 하는 위치 값
+                  child: ClipRect(
+                    child: SvgPicture.asset(
+                      'assets/icons/diary/spring.svg', // 다른 SVG 이미지의 경로
+                      width: 300,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 15,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -119,41 +178,7 @@ class _ShowCartoonScreenState extends State<ShowCartoonScreen> {
                 ),
               ],
             ),
-            Container(
-              width: 358,
-              height: 764,
-              child: PageView(
-                controller: _pageController,
-                onPageChanged: (index) {
-                  setState(() {
-                    _currentPageIndex = index;
-                  });
-                },
-                children: [
-                  FirstContainer(
-                    selectedImageIndicesList[0],
-                    (containerIndex, imageIndex) =>
-                        selectImage(imageIndex, containerIndex),
-                  ),
-                  SecondContainer(
-                    selectedImageIndicesList[1],
-                    (containerIndex, imageIndex) =>
-                        selectImage(imageIndex, containerIndex),
-                  ),
-                  ThirdContainer(
-                    selectedImageIndicesList[2],
-                    (containerIndex, imageIndex) =>
-                        selectImage(imageIndex, containerIndex),
-                  ),
-                  FourthContainer(
-                    selectedImageIndicesList[3],
-                    (containerIndex, imageIndex) =>
-                        selectImage(imageIndex, containerIndex),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 28),
+            SizedBox(height: 20),
             Column(
               children: [
                 SizedBox(
@@ -169,7 +194,7 @@ class _ShowCartoonScreenState extends State<ShowCartoonScreen> {
                       ),
                     ),
                     child: Text(
-                      '완전하게 만화 생성하기',
+                      '내 만화 보러가기',
                       style: TextStyle(
                         fontSize: 18,
                         fontFamily: 'moebiusRegular',
@@ -200,7 +225,7 @@ class _ShowCartoonScreenState extends State<ShowCartoonScreen> {
                       ),
                     ),
                     child: Text(
-                      '수정하기',
+                      '이야기 수정하기',
                       style: TextStyle(
                         fontSize: 18,
                         fontFamily: 'moebiusRegular',
@@ -253,6 +278,7 @@ class _FirstContainerState extends State<FirstContainer> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              SizedBox(height: 20), // 여기에 추가
               Padding(
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Row(
@@ -261,11 +287,12 @@ class _FirstContainerState extends State<FirstContainer> {
                     SizedBox(
                       width: 4,
                     ),
+                    SizedBox(height: 20),
                     Text(
-                      ' - TOON 1 - ',
+                      '#1 설레는 이동 시간',
                       style: TextStyle(
                         color: Color(0xff3B4866),
-                        fontSize: 30,
+                        fontSize: 20,
                         fontFamily: 'moebiusBold',
                       ),
                     ),
@@ -389,6 +416,7 @@ class _SecondContainerState extends State<SecondContainer> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Row(
@@ -398,10 +426,10 @@ class _SecondContainerState extends State<SecondContainer> {
                       width: 4,
                     ),
                     Text(
-                      ' - TOON 2 - ',
+                      '#2 재미있는 여행',
                       style: TextStyle(
                         color: Color(0xff3B4866),
-                        fontSize: 30,
+                        fontSize: 20,
                         fontFamily: 'moebiusBold',
                       ),
                     ),
@@ -522,6 +550,7 @@ class _ThirdContainerState extends State<ThirdContainer> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Row(
@@ -531,10 +560,10 @@ class _ThirdContainerState extends State<ThirdContainer> {
                       width: 4,
                     ),
                     Text(
-                      ' - TOON 3 - ',
+                      '#3 행복한 자연속 우리 가족♥',
                       style: TextStyle(
                         color: Color(0xff3B4866),
-                        fontSize: 30,
+                        fontSize: 20,
                         fontFamily: 'moebiusBold',
                       ),
                     ),
@@ -655,6 +684,7 @@ class _FourthContainerState extends State<FourthContainer> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Row(
@@ -664,10 +694,10 @@ class _FourthContainerState extends State<FourthContainer> {
                       width: 4,
                     ),
                     Text(
-                      ' - TOON 4 - ',
+                      '#4 즐거운 저녁식사',
                       style: TextStyle(
                         color: Color(0xff3B4866),
-                        fontSize: 30,
+                        fontSize: 20,
                         fontFamily: 'moebiusBold',
                       ),
                     ),

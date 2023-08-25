@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:SKT_FLY_AI/screen/myalbum.dart';
+import 'package:SKT_FLY_AI/screen/myalbum2.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart'; // 추가
 
@@ -43,7 +43,7 @@ class _CartoonResultScreenState extends State<CartoonResultScreen> {
 
     // 토스트 메시지 표시
     Fluttertoast.showToast(
-      msg: '커뮤니티에 공유되었습니다!',
+      msg: '캔버스에 공유되었습니다.',
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
       backgroundColor: Colors.grey[800],
@@ -80,10 +80,10 @@ class _CartoonResultScreenState extends State<CartoonResultScreen> {
             children: [
               SizedBox(height: 50),
               Text(
-                '당신의 만화를 소개합니다!',
+                '개🐶망나니들과 빠지여행',
                 style: TextStyle(
                   color: Color(0xff3B4866),
-                  fontSize: 28,
+                  fontSize: 20,
                   fontFamily: 'moebiusRegular',
                   fontWeight: FontWeight.bold,
                 ),
@@ -169,7 +169,7 @@ class _CartoonResultScreenState extends State<CartoonResultScreen> {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              MyAccountPage()), // MyAlbumPage으로 이동
+                              MyAccountPage2()), // MyAlbumPage으로 이동
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -180,7 +180,7 @@ class _CartoonResultScreenState extends State<CartoonResultScreen> {
                     ),
                   ),
                   child: Text(
-                    '커뮤니티 공유',
+                    '공유하기',
                     style: TextStyle(
                       fontSize: 18,
                       fontFamily: 'moebiusRegular',
