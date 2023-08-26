@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:SKT_FLY_AI/screen/myalbum.dart';
 
 void main() {
   runApp(MyApp());
@@ -73,59 +74,75 @@ class ADotHomeScreen extends StatelessWidget {
                       },
                       style: ElevatedButton.styleFrom(
                         primary: Color(0xff50CCF2),
-                        padding: EdgeInsets.only(left: 30), // 왼쪽에 20px 여백 추가
+                        padding: EdgeInsets.only(left: 30),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
                         alignment: Alignment.centerLeft,
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
+                      child: Row(
+                        // ElevatedButton 내부에 Row를 추가하여 버튼과 아이콘을 나란히 배치
                         children: [
-                          Text(
-                            '지원이가 샀던 바로 그 에이닷!',
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontFamily: 'moebiusBold'),
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            '혜진이가 좋아한 바로 그 에이닷!',
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontFamily: 'moebiusBold'),
-                          ),
-                          SizedBox(height: 15),
-                          ElevatedButton(
-                            onPressed: () {
-                              // 버튼을 눌렀을 때의 동작
-                            },
-                            style: ElevatedButton.styleFrom(
-                              primary: Colors.white,
-                              padding: EdgeInsets.all(0), // 여백을 모두 제거
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 20),
-                              child: Text(
-                                '스토어로 가기 >',
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                '당신의 지루한 일상에 즐거운 시간',
                                 style: TextStyle(
                                     fontSize: 16,
-                                    color: Color(0xff4D85BB),
-                                    fontFamily: 'moebiusRegular'),
+                                    color: Colors.white,
+                                    fontFamily: 'moebiusBold'),
                               ),
-                            ),
+                              SizedBox(height: 10),
+                              Text(
+                                '만화 이미지로 바꿔바꿔',
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    fontFamily: 'moebiusBold'),
+                              ),
+                              SizedBox(height: 15),
+                              ElevatedButton(
+                                onPressed: () {
+                                  // '투니월드로 가기' 버튼을 눌렀을 때의 동작
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            MyAccountPage()), // MyAccountPage로 이동
+                                  );
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  primary: Colors.white,
+                                  padding: EdgeInsets.all(0),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 20),
+                                  child: Text(
+                                    '투니월드로 가기 >',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        color: Color(0xff3B4866),
+                                        fontFamily: 'moebiusBold'),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(width: 16), // 아이콘과 버튼 사이의 간격
+                          SvgPicture.asset(
+                            'assets/icons/input/paint.svg', // 사용하려는 SVG 아이콘 파일 경로
                           ),
                         ],
                       ),
                     ),
                   ),
+
                   SizedBox(height: 15),
                   SizedBox(
                     width: 370,

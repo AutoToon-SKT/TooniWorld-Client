@@ -25,7 +25,6 @@ class ChoiceScreen extends StatefulWidget {
 }
 
 class _ChoiceScreenState extends State<ChoiceScreen> {
-  int infoId = -1; // Initialize with a default value
   TextEditingController cartoonNameController = TextEditingController();
   TextEditingController locationController = TextEditingController();
   DateTime? selectedDateTime; // Nullable DateTime
@@ -60,7 +59,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
       final responseData = json.decode(response.body);
       final code = responseData['code'];
 
-      if (code == 200) {
+      if (code == 201) {
         // 카툰 정보 저장 성공 시 처리
         final infoId = responseData['data']['infoId'];
         final userId = responseData['data']['userId'];
@@ -123,7 +122,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => DiaryScreen(infoId: infoId), // Pass infoId
+        builder: (context) => DiaryScreen(), // 데이터 전달
       ),
     );
   }

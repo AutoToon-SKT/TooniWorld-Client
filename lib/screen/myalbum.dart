@@ -11,9 +11,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: MyAccountPage(),
-      routes: {
-        '/input': (context) => InputScreen(), // InputScreen을 '/input' 경로로 등록
-      },
     );
   }
 }
@@ -49,7 +46,12 @@ class MyAccountPage extends StatelessWidget {
                 height: 30,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, '/input');
+                // '투니월드로 가기' 버튼을 눌렀을 때의 동작
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => InputScreen()), // MyAccountPage로 이동
+                );
               },
             ),
             IconButton(
