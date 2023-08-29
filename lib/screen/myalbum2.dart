@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: MyAccountPage2(),
       routes: {
-        '/choice': (context) => InputScreen(), // InputScreen을 '/input' 경로로 등록
+        '/input': (context) => InputScreen(), // InputScreen을 '/input' 경로로 등록
       },
     );
   }

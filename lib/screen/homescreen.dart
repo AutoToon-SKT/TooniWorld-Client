@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:SKT_FLY_AI/screen/myalbum.dart';
+import 'package:SKT_FLY_AI/sub_splash_screen.dart'; // Import SubSplashScreen
 
 void main() {
   runApp(MyApp());
@@ -110,7 +110,7 @@ class ADotHomeScreen extends StatelessWidget {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            MyAccountPage()), // MyAccountPage로 이동
+                                            SubSplashScreen()), // splash로 이동
                                   );
                                 },
                                 style: ElevatedButton.styleFrom(
