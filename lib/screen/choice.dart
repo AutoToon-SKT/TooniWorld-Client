@@ -25,6 +25,7 @@ class ChoiceScreen extends StatefulWidget {
 }
 
 class _ChoiceScreenState extends State<ChoiceScreen> {
+  int infoId = -1; // Initialize with a default value
   TextEditingController cartoonNameController = TextEditingController();
   TextEditingController locationController = TextEditingController();
   DateTime? selectedDateTime; // Nullable DateTime
@@ -36,7 +37,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
   /* spring 연동 */
   void _sendDataToBackend() async {
     final userId = 8; // 실제 사용자 ID로 대체
-    final url = Uri.parse('http://15.164.170.90:1234/$userId/info');
+    final url = Uri.parse('http://15.164.170.90:8080/$userId/info');
 
     final response = await http.post(
       url,
@@ -59,11 +60,15 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
       final responseData = json.decode(response.body);
       final code = responseData['code'];
 
-      if (code == 201) {
+      if (code == 200) {
         // 카툰 정보 저장 성공 시 처리
         final infoId = responseData['data']['infoId'];
         final userId = responseData['data']['userId'];
         final toonName = responseData['data']['toonName'];
+
+        setState(() {
+          this.infoId = infoId;
+        });
 
         print('카툰 정보 저장 성공');
         print('infoId: $infoId');
@@ -118,13 +123,15 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
     // 데이터 전송 로직
     _sendDataToBackend();
 
-    // 데이터 전송 후 이동
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => DiaryScreen(), // 데이터 전달
-      ),
-    );
+    if (infoId != -1) {
+      // 데이터 전송 후 이동
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => DiaryScreen(infoId: infoId), // Pass infoId
+        ),
+      );
+    }
   }
 
   @override
@@ -556,8 +563,4 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
       margin: EdgeInsets.symmetric(vertical: 5),
     );
   }
-
-  // void _showResultDialog() {
-  //   // ... (이하 코드는 생략)
-  // }
 }

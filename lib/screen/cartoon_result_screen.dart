@@ -18,10 +18,10 @@ class _CartoonResultScreenState extends State<CartoonResultScreen> {
 
   // 이미지에 대한 설명 리스트
   List<String> imageDescriptions = [
-    '아침에 가족 모두 모여서 계획을 세운다. 엄마가 지도를 펴고, 아빠가 여행 가방을 싸기 시작한다. 동생은 설레는 얼굴로 기다리고 있고, 나는 모험을 상상하며 웃고 있다.',
-    '차 안에서의 여행은 웃음 가득하다. 노래를 부르며 나누는 이야기와 재미있는 농담으로 시간이 금방 가는 듯하다. 도로 풍경도 점점 변해가고 있다.',
-    '목적지에 도착하면 모두 들떠있다. 해변에서 모래성을 쌓고, 파도와 함께 물놀이를 하며 즐거운 시간을 보낸다. 사진을 찍어 추억을 남기기도 하고 서로의 모습을 감상한다.',
-    '물결의 소리와 함께 햇살이 내리쬐는 바닷가, 모래 위에서 걸어가는 우리의 발자국. 소중한 순간들이 한 편의 풍경으로 녹아든 여행 이야기.',
+    '오늘은 꿈에 그리던 여행, 미국 그랜드 캐니언에서 일출을 바라보는 날이다. 아침 일찍 출발하여 버스를 타고 그랜드캐니언으로 왔다. 이미 버스 안에서부터 넓은 평야와 푸른 하늘이 기분을 상쾌하게 만들었다.',
+    '오전에는 캐니언 엣지 트레일을 따라 걸어보았다. 산책로의 양쪽에는 황량한 사막과 깊고 큰 협곡이 펼쳐져 있었다. 바람이 부는 소리와 새들의 지저귐만이 귀를 자극했다. 경치에 홀린 듯이 사진을 찍고는 그 순간을 나만의 기억으로 간직하고 싶다고 느꼈다.',
+    '일출 전 잠시 협곡 레스토랑에서 같이 간 친구들 4명과 지역 음식을 맛보았다. 그랜드 캐니언에서 느끼는 특별한 맛은 이곳만의 매력이었다.  간단하게 음식을 먹고 난 후 등산로를 따라 대자연의 황홀한 아름다움을 더 가까이서 느낄 수 있었다. 하늘에서 내려다보는 경치는 정말로 숨을 죽이는 아름다움이었다. 갈색과 주황색의 약간 노른 하늘이 만들어내는 컬러 팔레트는 정말 찬란했다.',
+    '일출이 되어서야 그랜드 캐니언의 황홀함을 경험할 수 있었다. 해가  뜨면서 하늘이 점점 붉게 물들어갔다. 그 붉은 빛이 절벽과 협곡을 비추면서 마치 환상적인 세계로 빠져들어간 듯한 느낌이 들었다.',
     //
   ];
 
@@ -80,10 +80,10 @@ class _CartoonResultScreenState extends State<CartoonResultScreen> {
             children: [
               SizedBox(height: 50),
               Text(
-                '개🐶망나니들과 빠지여행',
+                '그랜드 캐니언 탐방기',
                 style: TextStyle(
                   color: Color(0xff3B4866),
-                  fontSize: 20,
+                  fontSize: 28,
                   fontFamily: 'moebiusRegular',
                   fontWeight: FontWeight.bold,
                 ),
@@ -142,7 +142,7 @@ class _CartoonResultScreenState extends State<CartoonResultScreen> {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Color(0xff3B4866),
-                              fontSize: 16,
+                              fontSize: 12,
                               fontFamily: 'moebiusRegular',
                             ),
                           ),

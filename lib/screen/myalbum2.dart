@@ -210,7 +210,7 @@ class MyAccountPage2 extends StatelessWidget {
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                   image: AssetImage(
-                                      'assets/images/complete2/img$index.png'),
+                                      'assets/images/complete/img$index.png'),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -233,7 +233,7 @@ class MyAccountPage2 extends StatelessWidget {
                             ),
                             SizedBox(height: 8.0),
                             Text(
-                              '친구들이랑 재미있게 보낸 시간',
+                              '그랜드 캐니언 탐방기',
                               style: TextStyle(
                                 color: Color(0xff3B4866),
                                 fontSize: 18,
@@ -242,7 +242,7 @@ class MyAccountPage2 extends StatelessWidget {
                             ),
                             SizedBox(height: 8.0),
                             Text(
-                              '아침에 가족 모두 모여서 계획을 세운다. 엄마가 지도를 펴고, 아빠가 여행 가방을 싸기 시작... more',
+                              '오늘은 꿈에 그리던 여행, 미국 그랜드 캐니언에서 일출을 바라보는날이다. 아침... more',
                               style: TextStyle(
                                 color: Color(0xff3B4866),
                                 fontSize: 14,
@@ -251,11 +251,11 @@ class MyAccountPage2 extends StatelessWidget {
                             ),
                             SizedBox(height: 8.0),
                             Text(
-                              '이승호 : 정말 재미있겠다.',
+                              '이승호 : 드넓은 광야 너무 아름다워요',
                               style: TextStyle(
                                 color: Color(0xff3B4866),
                                 fontSize: 12,
-                                fontFamily: 'moebiusRegular',
+                                fontFamily: 'moebiusBold',
                               ),
                             ),
                             SizedBox(height: 8.0),
@@ -274,7 +274,7 @@ class MyAccountPage2 extends StatelessWidget {
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(
-                                'assets/images/complete2/img$index.png'),
+                                'assets/images/complete/img$index.png'),
                             fit: BoxFit.cover,
                           ),
                         ),

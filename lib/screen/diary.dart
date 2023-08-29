@@ -4,21 +4,26 @@ import 'package:SKT_FLY_AI/screen/loading.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert'; // 이 줄을 추가해주세요
 
-void main() {
-  runApp(MyApp());
-}
+// void main() {
+//   runApp(MyApp());
+// }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'My App',
-      home: DiaryScreen(),
-    );
-  }
-}
+// class MyApp extends StatelessWidget {
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'My App',
+//       home: DiaryScreen(),
+//     );
+//   }
+// }
 
 class DiaryScreen extends StatefulWidget {
+  final int infoId; // Add this line
+
+  DiaryScreen({required this.infoId}); // Add this constructor
+
   @override
   _DiaryScreenState createState() => _DiaryScreenState();
 }
@@ -33,53 +38,52 @@ class _DiaryScreenState extends State<DiaryScreen> {
     });
   }
 
-  // void _saveStoryAndNavigate() async {
-  //   String story = storyController.text;
+  void _saveStoryAndNavigate() async {
+    String story = storyController.text;
 
-  //   final infoId = 10; // 실제 사용자 ID로 대체
-  //   final url = Uri.parse('http://15.164.170.90:1234/$infoId/story');
-  //   final response = await http.post(
-  //     url,
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: json.encode({
-  //       'storyContent': story,
-  //     }),
-  //   );
+    final url = Uri.parse('http://15.164.170.90:8080/${widget.infoId}/story');
+    final response = await http.post(
+      url,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: json.encode({
+        'storyContent': story,
+      }),
+    );
 
-  //   if (response.statusCode == 200) {
-  //     final responseData = json.decode(response.body);
+    if (response.statusCode == 200) {
+      final responseData = json.decode(response.body);
 
-  //     int infoId = responseData['data']['infoId'];
-  //     int storyId = responseData['data']['storyId'];
+      int infoId = responseData['data']['infoId'];
+      int storyId = responseData['data']['storyId'];
 
-  //     // infoId와 storyId를 활용한 처리
-  //     // ...
-  //   } else if (response.statusCode == 400) {
-  //     final responseData = json.decode(response.body);
-  //     String errorMessage = responseData['message'];
-  //     // 경고 또는 에러 메시지를 표시하거나 다른 처리를 수행할 수 있습니다.
-  //     print('에러 발생: $errorMessage');
-  //   } else {
-  //     // 기타 상태 코드에 대한 처리
-  //     // ...
-  //   }
+      // infoId와 storyId를 활용한 처리
+      // ...
+    } else if (response.statusCode == 400) {
+      final responseData = json.decode(response.body);
+      String errorMessage = responseData['message'];
+      // 경고 또는 에러 메시지를 표시하거나 다른 처리를 수행할 수 있습니다.
+      print('에러 발생: $errorMessage');
+    } else {
+      // 기타 상태 코드에 대한 처리
+      // ...
+    }
 
-  //   // Clear the text field
-  //   storyController.clear();
+    // Clear the text field
+    storyController.clear();
 
-  //   // Navigate to the LoadingScreen
-  //   Navigator.push(
-  //     context,
-  //     MaterialPageRoute(builder: (context) => LoadingScreen()),
-  //   );
+    // Navigate to the LoadingScreen
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => LoadingScreen()),
+    );
 
-  //   // Set isWriting to false
-  //   setState(() {
-  //     isWriting = false;
-  //   });
-  // }
+    // Set isWriting to false
+    setState(() {
+      isWriting = false;
+    });
+  }
 
   @override
   void dispose() {
@@ -449,15 +453,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                       width: 358,
                       height: 51,
                       child: ElevatedButton(
-                        onPressed: () {
-                          // '투니월드로 가기' 버튼을 눌렀을 때의 동작
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    LoadingScreen()), // MyAccountPage로 이동
-                          );
-                        },
+                        onPressed: _saveStoryAndNavigate,
                         style: ElevatedButton.styleFrom(
                           primary: Color(0xff727DBC),
                           onPrimary: Colors.white,

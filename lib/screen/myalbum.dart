@@ -212,7 +212,7 @@ class MyAccountPage extends StatelessWidget {
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                   image: AssetImage(
-                                      'assets/images/complete/img$index.png'),
+                                      'assets/images/complete2/img$index.png'),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -276,7 +276,7 @@ class MyAccountPage extends StatelessWidget {
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(
-                                'assets/images/complete/img$index.png'),
+                                'assets/images/complete2/img$index.png'),
                             fit: BoxFit.cover,
                           ),
                         ),

@@ -8,6 +8,8 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
+  bool _disposed = false;
+
   @override
   void initState() {
     super.initState();
@@ -19,6 +21,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
         MaterialPageRoute(builder: (context) => ShowCartoonScreen()),
       );
     });
+  }
+
+  @override
+  void dispose() {
+    _disposed = true;
+    super.dispose();
   }
 
   @override
@@ -78,6 +86,8 @@ class _LoadingDotsState extends State<LoadingDots> {
   bool isMovingUp2 = false;
   bool isMovingUp3 = true;
 
+  late Timer _timer; // Add this line
+
   @override
   void initState() {
     super.initState();
@@ -85,13 +95,23 @@ class _LoadingDotsState extends State<LoadingDots> {
   }
 
   void _startTimer() {
-    Timer.periodic(Duration(milliseconds: 300), (timer) {
+    _timer = Timer.periodic(Duration(milliseconds: 300), (timer) {
+      if (!mounted) {
+        // Check if the widget is still mounted before updating the state
+        return;
+      }
       setState(() {
         isMovingUp1 = !isMovingUp1;
         isMovingUp2 = !isMovingUp2;
         isMovingUp3 = !isMovingUp3;
       });
     });
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel(); // Cancel the timer when disposing the widget
+    super.dispose();
   }
 
   @override

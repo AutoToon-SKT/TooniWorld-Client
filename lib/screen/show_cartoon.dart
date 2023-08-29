@@ -80,12 +80,11 @@ class _ShowCartoonScreenState extends State<ShowCartoonScreen> {
           children: [
             SizedBox(height: 50),
             Text(
-              "\u{1F3A8}  베스트 컷 선택  \u{1F3A8}",
+              " < 베스트컷 선택 > ",
               style: TextStyle(
                 color: Color(0xff3B4866),
                 fontSize: 28,
                 fontFamily: 'moebiusRegular',
-                fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 20),
@@ -289,7 +288,7 @@ class _FirstContainerState extends State<FirstContainer> {
                     ),
                     SizedBox(height: 20),
                     Text(
-                      '#1 설레는 이동 시간',
+                      '#1 그랜드 캐니언 출발',
                       style: TextStyle(
                         color: Color(0xff3B4866),
                         fontSize: 20,
@@ -426,7 +425,7 @@ class _SecondContainerState extends State<SecondContainer> {
                       width: 4,
                     ),
                     Text(
-                      '#2 재미있는 여행',
+                      '#2 그랜드 캐니언 협곡 탐방',
                       style: TextStyle(
                         color: Color(0xff3B4866),
                         fontSize: 20,
@@ -560,7 +559,7 @@ class _ThirdContainerState extends State<ThirdContainer> {
                       width: 4,
                     ),
                     Text(
-                      '#3 행복한 자연속 우리 가족♥',
+                      '#3 그랜드 캐니언에서 아침식사',
                       style: TextStyle(
                         color: Color(0xff3B4866),
                         fontSize: 20,
@@ -694,7 +693,7 @@ class _FourthContainerState extends State<FourthContainer> {
                       width: 4,
                     ),
                     Text(
-                      '#4 즐거운 저녁식사',
+                      '#4 아름다운 일출',
                       style: TextStyle(
                         color: Color(0xff3B4866),
                         fontSize: 20,
