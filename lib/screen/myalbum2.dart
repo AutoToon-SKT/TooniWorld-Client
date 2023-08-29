@@ -12,13 +12,22 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: MyAccountPage2(),
       routes: {
-        '/input': (context) => InputScreen(), // InputScreen을 '/input' 경로로 등록
+        '/choice': (context) => InputScreen(), // InputScreen을 '/input' 경로로 등록
       },
     );
   }
 }
 
-class MyAccountPage2 extends StatelessWidget {
+class MyAccountPage2 extends StatefulWidget {
+  @override
+  _MyAccountPage2State createState() => _MyAccountPage2State();
+}
+
+class _MyAccountPage2State extends State<MyAccountPage2> {
+  Color acornIconColor = Colors.black;
+  Color chatIconColor = Colors.black;
+  Color sendIconColor = Colors.black;
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -171,7 +180,7 @@ class MyAccountPage2 extends StatelessWidget {
                         ),
                         SizedBox(height: 8.0),
                         Text(
-                          '친구 $index',
+                          '이웃 $index',
                           style: TextStyle(
                             color: Color(0xff3B4866),
                             fontSize: 12,
@@ -218,16 +227,46 @@ class MyAccountPage2 extends StatelessWidget {
                             SizedBox(height: 8.0),
                             Row(
                               children: [
-                                SvgPicture.asset(
-                                  'assets/icons/album/acorn.svg',
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      acornIconColor = Colors.brown;
+                                      chatIconColor = Colors.black;
+                                      sendIconColor = Colors.black;
+                                    });
+                                  },
+                                  child: SvgPicture.asset(
+                                    'assets/icons/album/acorn.svg',
+                                    color: acornIconColor,
+                                  ),
                                 ),
                                 SizedBox(width: 12.0),
-                                SvgPicture.asset(
-                                  'assets/icons/album/chat.svg',
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      acornIconColor = Colors.black;
+                                      chatIconColor = Color(0xff727DBC);
+                                      sendIconColor = Colors.black;
+                                    });
+                                  },
+                                  child: SvgPicture.asset(
+                                    'assets/icons/album/chat.svg',
+                                    color: chatIconColor,
+                                  ),
                                 ),
                                 SizedBox(width: 12.0),
-                                SvgPicture.asset(
-                                  'assets/icons/album/send.svg',
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      acornIconColor = Colors.black;
+                                      chatIconColor = Colors.black;
+                                      sendIconColor = Color(0xff727DBC);
+                                    });
+                                  },
+                                  child: SvgPicture.asset(
+                                    'assets/icons/album/send.svg',
+                                    color: sendIconColor,
+                                  ),
                                 ),
                               ],
                             ),

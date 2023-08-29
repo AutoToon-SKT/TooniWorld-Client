@@ -115,6 +115,7 @@ class ADotHomeScreen extends StatelessWidget {
                                 },
                                 style: ElevatedButton.styleFrom(
                                   primary: Colors.white,
+                                  onPrimary: Color(0xff3B4866),
                                   padding: EdgeInsets.all(0),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20),

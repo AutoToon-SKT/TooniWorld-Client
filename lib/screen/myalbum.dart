@@ -15,7 +15,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyAccountPage extends StatelessWidget {
+class MyAccountPage extends StatefulWidget {
+  @override
+  _MyAccountPageState createState() => _MyAccountPageState();
+}
+
+class _MyAccountPageState extends State<MyAccountPage> {
+  Color acornIconColor = Colors.black;
+  Color chatIconColor = Colors.black;
+  Color sendIconColor = Colors.black;
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -173,7 +182,7 @@ class MyAccountPage extends StatelessWidget {
                         ),
                         SizedBox(height: 8.0),
                         Text(
-                          '친구 $index',
+                          '이웃 $index',
                           style: TextStyle(
                             color: Color(0xff3B4866),
                             fontSize: 12,
@@ -220,16 +229,46 @@ class MyAccountPage extends StatelessWidget {
                             SizedBox(height: 8.0),
                             Row(
                               children: [
-                                SvgPicture.asset(
-                                  'assets/icons/album/acorn.svg',
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      acornIconColor = Colors.brown;
+                                      chatIconColor = Colors.black;
+                                      sendIconColor = Colors.black;
+                                    });
+                                  },
+                                  child: SvgPicture.asset(
+                                    'assets/icons/album/acorn.svg',
+                                    color: acornIconColor,
+                                  ),
                                 ),
                                 SizedBox(width: 12.0),
-                                SvgPicture.asset(
-                                  'assets/icons/album/chat.svg',
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      acornIconColor = Colors.black;
+                                      chatIconColor = Color(0xff727DBC);
+                                      sendIconColor = Colors.black;
+                                    });
+                                  },
+                                  child: SvgPicture.asset(
+                                    'assets/icons/album/chat.svg',
+                                    color: chatIconColor,
+                                  ),
                                 ),
                                 SizedBox(width: 12.0),
-                                SvgPicture.asset(
-                                  'assets/icons/album/send.svg',
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      acornIconColor = Colors.black;
+                                      chatIconColor = Colors.black;
+                                      sendIconColor = Color(0xff727DBC);
+                                    });
+                                  },
+                                  child: SvgPicture.asset(
+                                    'assets/icons/album/send.svg',
+                                    color: sendIconColor,
+                                  ),
                                 ),
                               ],
                             ),
@@ -244,7 +283,7 @@ class MyAccountPage extends StatelessWidget {
                             ),
                             SizedBox(height: 8.0),
                             Text(
-                              '아침에 가족 모두 모여서 계획을 세운다. 엄마가 지도를 펴고, 아빠가 여행 가방을 싸기 시작... more',
+                              '친구들과 같이 카페에 들려서 음료수 하나를 사고 전철을 타기 시작했다 설레는... more',
                               style: TextStyle(
                                 color: Color(0xff3B4866),
                                 fontSize: 14,
@@ -257,7 +296,7 @@ class MyAccountPage extends StatelessWidget {
                               style: TextStyle(
                                 color: Color(0xff3B4866),
                                 fontSize: 12,
-                                fontFamily: 'moebiusRegular',
+                                fontFamily: 'moebiusBold',
                               ),
                             ),
                             SizedBox(height: 8.0),
