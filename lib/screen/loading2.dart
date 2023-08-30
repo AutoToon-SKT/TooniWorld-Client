@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:SKT_FLY_AI/screen/show_cartoon.dart';
+import 'package:SKT_FLY_AI/screen/show_cartoon2.dart';
 
-class LoadingScreen extends StatefulWidget {
+class LoadingScreen2 extends StatefulWidget {
   @override
-  _LoadingScreenState createState() => _LoadingScreenState();
+  _LoadingScreen2State createState() => _LoadingScreen2State();
 }
 
-class _LoadingScreenState extends State<LoadingScreen> {
+class _LoadingScreen2State extends State<LoadingScreen2> {
   bool _disposed = false;
 
   @override
   void initState() {
     super.initState();
 
-    //5초 후에 show_cartoon.dart로 이동
+    // 5초 후에 show_cartoon.dart로 이동
     Timer(Duration(seconds: 5), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => ShowCartoonScreen()),
+        MaterialPageRoute(builder: (context) => ShowCartoonScreen2()),
       );
     });
   }
@@ -169,7 +169,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Loading Animation',
-      home: LoadingScreen(),
+      home: LoadingScreen2(),
     );
   }
 }

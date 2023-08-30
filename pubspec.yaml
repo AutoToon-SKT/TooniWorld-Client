@@ -60,8 +60,12 @@ flutter:
     - assets/icons/album/
     - assets/images/home/
     - assets/images/result/
+    - assets/images/result2/
+    - assets/images/result3/
     - assets/images/complete/
     - assets/images/complete2/
+    - assets/images/complete3/
+    - assets/images/complete4/
     - assets/images/friend/
 
   

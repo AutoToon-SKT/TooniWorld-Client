@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
-import 'package:SKT_FLY_AI/screen/diary.dart';
+import 'package:SKT_FLY_AI/screen/diary3.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert'; // 이 줄을 추가해주세요
 
@@ -14,17 +14,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'My App',
-      home: ChoiceScreen(),
+      home: ChoiceScreen3(),
     );
   }
 }
 
-class ChoiceScreen extends StatefulWidget {
+class ChoiceScreen3 extends StatefulWidget {
   @override
-  _ChoiceScreenState createState() => _ChoiceScreenState();
+  _ChoiceScreen3State createState() => _ChoiceScreen3State();
 }
 
-class _ChoiceScreenState extends State<ChoiceScreen> {
+class _ChoiceScreen3State extends State<ChoiceScreen3> {
   int infoId = -1; // Initialize with a default value
   TextEditingController cartoonNameController = TextEditingController();
   TextEditingController locationController = TextEditingController();
@@ -128,7 +128,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => DiaryScreen(infoId: infoId), // Pass infoId
+          builder: (context) => DiaryScreen3(infoId: infoId), // Pass infoId
         ),
       );
     }

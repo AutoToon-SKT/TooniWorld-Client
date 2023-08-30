@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: '투니월드',
       theme: ThemeData(
         scaffoldBackgroundColor: Color(0xffF1F2F6),

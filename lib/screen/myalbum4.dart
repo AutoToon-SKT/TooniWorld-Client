@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:SKT_FLY_AI/screen/input2.dart';
+import 'package:SKT_FLY_AI/screen/input3.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
@@ -10,17 +10,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyAccountPage2(),
+      home: MyAccountPage4(),
     );
   }
 }
 
-class MyAccountPage2 extends StatefulWidget {
+class MyAccountPage4 extends StatefulWidget {
   @override
-  _MyAccountPage2State createState() => _MyAccountPage2State();
+  _MyAccountPage4State createState() => _MyAccountPage4State();
 }
 
-class _MyAccountPage2State extends State<MyAccountPage2> {
+class _MyAccountPage4State extends State<MyAccountPage4> {
   Color acornIconColor = Colors.black;
   Color chatIconColor = Colors.black;
   Color sendIconColor = Colors.black;
@@ -57,7 +57,7 @@ class _MyAccountPage2State extends State<MyAccountPage2> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => InputScreen2()),
+                  MaterialPageRoute(builder: (context) => InputScreen3()),
                 );
               },
             ),
@@ -129,7 +129,7 @@ class _MyAccountPage2State extends State<MyAccountPage2> {
                       Row(
                         children: [
                           Text(
-                            '캔버스 5',
+                            '캔버스 7',
                             style: TextStyle(
                               color: Color(0xff3B4866),
                               fontSize: 14,
@@ -207,7 +207,7 @@ class _MyAccountPage2State extends State<MyAccountPage2> {
               child: TabBarView(
                 children: [
                   ListView.builder(
-                    itemCount: 5,
+                    itemCount: 7,
                     itemBuilder: (context, index) {
                       return Container(
                         padding: EdgeInsets.all(16.0),
@@ -219,7 +219,7 @@ class _MyAccountPage2State extends State<MyAccountPage2> {
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                   image: AssetImage(
-                                      'assets/images/complete/img$index.png'),
+                                      'assets/images/complete4/img$index.png'),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -272,7 +272,7 @@ class _MyAccountPage2State extends State<MyAccountPage2> {
                             ),
                             SizedBox(height: 8.0),
                             Text(
-                              '그랜드 캐니언 탐방기',
+                              'SKT FLY AI',
                               style: TextStyle(
                                 color: Color(0xff3B4866),
                                 fontSize: 18,
@@ -281,7 +281,7 @@ class _MyAccountPage2State extends State<MyAccountPage2> {
                             ),
                             SizedBox(height: 8.0),
                             Text(
-                              '오늘은 꿈에 그리던 여행, 미국 그랜드 캐니언에서 일출을 바라보는날이다. 아침... more',
+                              '드디어 대망의 SKT FLY AI가 성공적으로 마무리가 되었고 우리는 대상을... more',
                               style: TextStyle(
                                 color: Color(0xff3B4866),
                                 fontSize: 14,
@@ -290,7 +290,7 @@ class _MyAccountPage2State extends State<MyAccountPage2> {
                             ),
                             SizedBox(height: 8.0),
                             Text(
-                              '이승호 : 드넓은 광야 너무 아름다워요',
+                              '강연수 : 다들 너무 고생했어 진짜 너무 축하해',
                               style: TextStyle(
                                 color: Color(0xff3B4866),
                                 fontSize: 12,
@@ -313,13 +313,13 @@ class _MyAccountPage2State extends State<MyAccountPage2> {
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(
-                                'assets/images/complete/img$index.png'),
+                                'assets/images/complete4/img$index.png'),
                             fit: BoxFit.cover,
                           ),
                         ),
                       );
                     },
-                    itemCount: 5, // 이미지 개수 설정
+                    itemCount: 7, // 이미지 개수 설정
                   ),
                 ],
               ),

@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:SKT_FLY_AI/screen/myalbum2.dart';
+import 'package:SKT_FLY_AI/screen/myalbum3.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart'; // 추가
 
-class CartoonResultScreen extends StatefulWidget {
+class CartoonResultScreen2 extends StatefulWidget {
   final List<int> selectedImageIndicesList;
 
-  CartoonResultScreen({required this.selectedImageIndicesList});
+  CartoonResultScreen2({required this.selectedImageIndicesList});
 
   @override
-  _CartoonResultScreenState createState() => _CartoonResultScreenState();
+  _CartoonResultScreen2State createState() => _CartoonResultScreen2State();
 }
 
-class _CartoonResultScreenState extends State<CartoonResultScreen> {
+class _CartoonResultScreen2State extends State<CartoonResultScreen2> {
   int currentPageIndex = 0;
   late PageController _pageController;
 
   // 이미지에 대한 설명 리스트
   List<String> imageDescriptions = [
-    '오늘은 꿈에 그리던 여행, 미국 그랜드 캐니언에서 일출을 바라보는 날이다. 아침 일찍 출발하여 버스를 타고 그랜드캐니언으로 왔다. 이미 버스 안에서부터 넓은 평야와 푸른 하늘이 기분을 상쾌하게 만들었다.',
-    '오전에는 캐니언 엣지 트레일을 따라 걸어보았다. 산책로의 양쪽에는 황량한 사막과 깊고 큰 협곡이 펼쳐져 있었다. 바람이 부는 소리와 새들의 지저귐만이 귀를 자극했다. 경치에 홀린 듯이 사진을 찍고는 그 순간을 나만의 기억으로 간직하고 싶다고 느꼈다.',
-    '일출 전 잠시 협곡 레스토랑에서 같이 간 친구들 4명과 지역 음식을 맛보았다. 그랜드 캐니언에서 느끼는 특별한 맛은 이곳만의 매력이었다.  간단하게 음식을 먹고 난 후 등산로를 따라 대자연의 황홀한 아름다움을 더 가까이서 느낄 수 있었다. 하늘에서 내려다보는 경치는 정말로 숨을 죽이는 아름다움이었다. 갈색과 주황색의 약간 노른 하늘이 만들어내는 컬러 팔레트는 정말 찬란했다.',
-    '일출이 되어서야 그랜드 캐니언의 황홀함을 경험할 수 있었다. 해가  뜨면서 하늘이 점점 붉게 물들어갔다. 그 붉은 빛이 절벽과 협곡을 비추면서 마치 환상적인 세계로 빠져들어간 듯한 느낌이 들었다.',
+    '묘한 설렘과 기대로 가득찬 하루였다. 오늘은 SKT FLY AI 부트캠프의 첫 걸음을 내딛는 날이었다. 새로운 도전 앞에 설레임이 가득하고 미래에 대한 열망이 솟아오르는 기분이었다.',
+    '저녁 시간에는 연수원 동료들과 함께 맥주파티를 즐겼다. 모두 다양한 배경과 이야기를 가진 사람들이었지만, 함께 웃으며 대화하는 시간은 마치 오랜 친구들과 함께한 것 같았다. 부드러운 바람과 따뜻한 대화 속에서 친목을 다지는 시간을 보냈다.',
+    '7주간 수업 시간에는 실제로 AI문제를 해결하며 공부하는 시간이 시작됐다. 어려운 문제들을 마주하면서도 포기하지 않고 고민하며 새로운 해결책을 찾아내는 과정이 정말 값진 경험이었다. 고난과 열정이 어우러져 성장하는 느낌을 느낄 수 있었다.',
+    '우리 팀은 다양한 배경과 역량을 지닌 멤버들로 구성되었다. 처음에는 서로의 강점과 역할을 파악하는 시간이 필요했지만, 서로를 이해하고 존중하는 분위기 속에서 점점 긴밀하게 협력하며 팀 활동을 진행했다. 프로젝트를 추진하면서 의견 충돌이 있을 때마다, 서로의 다양한 시각을 듣고 공감하는 노력을 했다. 이 과정에서 개개인의 아이디어가 하나로 조합되면서 창의적이고 혁신적인 결과물을 만들어냈다.',
     //
   ];
 
@@ -80,7 +80,7 @@ class _CartoonResultScreenState extends State<CartoonResultScreen> {
             children: [
               SizedBox(height: 50),
               Text(
-                '그랜드 캐니언 탐방기',
+                'SKT FLY AI',
                 style: TextStyle(
                   color: Color(0xff3B4866),
                   fontSize: 28,
@@ -129,7 +129,7 @@ class _CartoonResultScreenState extends State<CartoonResultScreen> {
                               BlendMode.saturation,
                             ),
                             child: Image.asset(
-                              'assets/images/complete/img$index.png',
+                              'assets/images/complete3/img$index.png',
                             ),
                           ),
                         ),
@@ -170,7 +170,7 @@ class _CartoonResultScreenState extends State<CartoonResultScreen> {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              MyAccountPage2()), // MyAlbumPage으로 이동
+                              MyAccountPage3()), // MyAlbumPage으로 이동
                     );
                   },
                   style: ElevatedButton.styleFrom(
