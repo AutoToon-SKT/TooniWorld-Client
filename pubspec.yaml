@@ -14,7 +14,6 @@ dependencies:
   get: ^4.1.4  # 최신 버전 사용 가능
   intl: ^0.17.0
 
-
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.7
   path_provider: ^2.0.2
@@ -27,12 +26,36 @@ dependencies:
   
 
 dev_dependencies:
+
   flutter_test:
     sdk: flutter
-  
-  image_picker: ^0.8.7+5
-  flutter_lints: ^2.0.0
 
+  flutter_launcher_icons: ^0.13.1
+
+  flutter_native_splash: ^2.3.2
+
+  image_picker: ^0.8.7+5
+
+  flutter_lints: ^2.0.0
+  
+
+flutter_native_splash:
+  android: true
+  ios: true
+  background_image: "assets/adot_main_splash.png"
+
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/app_logo.png"
+
+
+
+  
+ 
+
+  
 flutter:
 
   uses-material-design: true
@@ -62,10 +85,13 @@ flutter:
     - assets/images/result/
     - assets/images/result2/
     - assets/images/result3/
+    - assets/images/complete0/
     - assets/images/complete/
     - assets/images/complete2/
     - assets/images/complete3/
     - assets/images/complete4/
+    - assets/images/complete5/
+    - assets/images/complete6/
     - assets/images/friend/
 
   

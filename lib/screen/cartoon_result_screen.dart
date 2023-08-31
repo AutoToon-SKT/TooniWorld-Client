@@ -129,7 +129,7 @@ class _CartoonResultScreenState extends State<CartoonResultScreen> {
                               BlendMode.saturation,
                             ),
                             child: Image.asset(
-                              'assets/images/complete/img$index.png',
+                              'assets/images/complete2/img$index.png',
                             ),
                           ),
                         ),

@@ -25,6 +25,33 @@ class _MyAccountPageState extends State<MyAccountPage> {
   Color chatIconColor = Colors.black;
   Color sendIconColor = Colors.black;
 
+  List<Map<String, dynamic>> imageData = [
+    {
+      'imagePath': 'assets/images/complete0/img0.png',
+      'title': '즐거운 기차 여행',
+      'description': '오늘은 즐거운 기차여행 날이다 친구들이랑 간단하게 점심을 먹고 커피를 사들고 more... ',
+      'comment': '이승호 : 엄청 재미있겠다 나중에 나도 기회되면 가고 싶어ㅠㅠ',
+    },
+    {
+      'imagePath': 'assets/images/complete0/img1.png',
+      'title': '제일 친한 친구 함께 찍은 사진 한 컷',
+      'description': '오랜만에 초등학교때 이사를 간 친구가 보고 싶었는데 사진이 없어서 아쉬웠다. more... ',
+      'comment': '강연수 : 뭐야 엄청 닮았어 대박대박',
+    },
+    {
+      'imagePath': 'assets/images/complete0/img2.png',
+      'title': '사촌동생과 함께 떠나는 바다 여행',
+      'description': '사촌동생이랑 배를 타고 저 멀리 있는 섬에 놀러가는 날이다. 바다 바람은 more... ',
+      'comment': '오정민 : 어디 섬으로 간거야 나도 나중에 한 번 가볼래!',
+    },
+    {
+      'imagePath': 'assets/images/complete0/img3.png',
+      'title': '즐거운 저녁시간 기다려지는 BBQ 파티',
+      'description': '즐거운 저녁시간이다 오랜만에 보고 싶었던 가족과 친적들과 함께 야외에서 BBQ를 즐겼 more... ',
+      'comment': '임승환 : 다음에 저도 꼭 참여할게요!',
+    },
+    // 나머지 이미지들에 대한 정보도 추가해주세요
+  ];
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -59,7 +86,8 @@ class _MyAccountPageState extends State<MyAccountPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => InputScreen()), // MyAccountPage로 이동
+                    builder: (context) => InputScreen(),
+                  ),
                 );
               },
             ),
@@ -209,7 +237,7 @@ class _MyAccountPageState extends State<MyAccountPage> {
               child: TabBarView(
                 children: [
                   ListView.builder(
-                    itemCount: 4,
+                    itemCount: imageData.length,
                     itemBuilder: (context, index) {
                       return Container(
                         padding: EdgeInsets.all(16.0),
@@ -220,8 +248,8 @@ class _MyAccountPageState extends State<MyAccountPage> {
                               height: 300.0,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
-                                  image: AssetImage(
-                                      'assets/images/complete2/img$index.png'),
+                                  image:
+                                      AssetImage(imageData[index]['imagePath']),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -274,7 +302,7 @@ class _MyAccountPageState extends State<MyAccountPage> {
                             ),
                             SizedBox(height: 8.0),
                             Text(
-                              '친구들이랑 재미있게 보낸 시간',
+                              imageData[index]['title'],
                               style: TextStyle(
                                 color: Color(0xff3B4866),
                                 fontSize: 18,
@@ -283,7 +311,7 @@ class _MyAccountPageState extends State<MyAccountPage> {
                             ),
                             SizedBox(height: 8.0),
                             Text(
-                              '친구들과 같이 카페에 들려서 음료수 하나를 사고 전철을 타기 시작했다 설레는... more',
+                              imageData[index]['description'],
                               style: TextStyle(
                                 color: Color(0xff3B4866),
                                 fontSize: 14,
@@ -292,7 +320,7 @@ class _MyAccountPageState extends State<MyAccountPage> {
                             ),
                             SizedBox(height: 8.0),
                             Text(
-                              '이승호 : 정말 재미있겠다.',
+                              imageData[index]['comment'],
                               style: TextStyle(
                                 color: Color(0xff3B4866),
                                 fontSize: 12,
@@ -315,7 +343,7 @@ class _MyAccountPageState extends State<MyAccountPage> {
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(
-                                'assets/images/complete2/img$index.png'),
+                                'assets/images/complete/img$index.png'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -328,7 +356,7 @@ class _MyAccountPageState extends State<MyAccountPage> {
             ),
           ],
         ),
-        backgroundColor: Color(0xffF2F3F8), // Scaffold 배경색 설정
+        backgroundColor: Color(0xffF2F3F8),
       ),
     );
   }

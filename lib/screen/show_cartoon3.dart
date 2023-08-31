@@ -288,7 +288,7 @@ class _FirstContainerState extends State<FirstContainer> {
                     ),
                     SizedBox(height: 20),
                     Text(
-                      '#1 갯벌에 빠진날',
+                      '#1 언니와 갯벌 놀이',
                       style: TextStyle(
                         color: Color(0xff3B4866),
                         fontSize: 20,
@@ -425,7 +425,7 @@ class _SecondContainerState extends State<SecondContainer> {
                       width: 4,
                     ),
                     Text(
-                      '#2 도망가는 언니 쫓아가는 나',
+                      '#2 언니 때문에 시작된 뻘 던지기',
                       style: TextStyle(
                         color: Color(0xff3B4866),
                         fontSize: 20,
@@ -559,7 +559,7 @@ class _ThirdContainerState extends State<ThirdContainer> {
                       width: 4,
                     ),
                     Text(
-                      '#3 제목 설정하기 3',
+                      '#3 언니때문에 속상한 내 자신',
                       style: TextStyle(
                         color: Color(0xff3B4866),
                         fontSize: 20,
@@ -693,7 +693,7 @@ class _FourthContainerState extends State<FourthContainer> {
                       width: 4,
                     ),
                     Text(
-                      '#4 제목 설정하기 4',
+                      '#4 이러한 모습을 보고 웃고있는 부모님',
                       style: TextStyle(
                         color: Color(0xff3B4866),
                         fontSize: 20,
