@@ -9,7 +9,7 @@
 임승환 (서울대학교) [ PM / AI ] <br>
 이승호 (한양대학교) [ AI ] <br>
 김서현 (서울과학기술대학교) [ Backend / Client ] <br>
-강연수 (이화여자대학교) [ Backend / Client ] <br>
+강연수 (이화여자대학교) [ Backend ] <br>
 오정민 (숭실대학교) [ Design / Client ]  
 
 ## 협업 규칙
