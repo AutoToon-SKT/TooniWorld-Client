@@ -65,7 +65,7 @@ class _MyAccountPage4State extends State<MyAccountPage4> {
       'comment': '오정민 : 어디 섬으로 간거야 나도 나중에 한 번 가볼래!',
     },
     {
-      'imagePath': 'assets/images/complete6/img7.png',
+      'imagePath': 'assets/images/complete6/img6.png',
       'title': '즐거운 저녁시간 기다려지는 BBQ 파티',
       'description': '즐거운 저녁시간이다 오랜만에 보고 싶었던 가족과 친적들과 함께 야외에서 BBQ를 즐겼 more... ',
       'comment': '임승환 : 다음에 저도 꼭 참여할게요!',

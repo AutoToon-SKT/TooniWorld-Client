@@ -137,7 +137,8 @@ class ADotHomeScreen extends StatelessWidget {
                           ),
                           SizedBox(width: 16), // 아이콘과 버튼 사이의 간격
                           SvgPicture.asset(
-                            'assets/icons/input/paint.svg', // 사용하려는 SVG 아이콘 파일 경로
+                            'assets/icons/input/paint.svg',
+                            width: 90, // 사용하려는 SVG 아이콘 파일 경로
                           ),
                         ],
                       ),
